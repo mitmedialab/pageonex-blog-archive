@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: How to deploy PageOneX on Heroku and the required changes	</title>
+	<atom:link href="https://blog.pageonex.com/2012/08/24/how-to-deploy-pageonex-on-heroku-and-the-required-changes/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.pageonex.com/2012/08/24/how-to-deploy-pageonex-on-heroku-and-the-required-changes/</link>
+	<description>Coding front pages</description>
+	<lastBuildDate>Fri, 24 Aug 2012 19:00:03 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>
+		By: p		</title>
+		<link>https://blog.pageonex.com/2012/08/24/how-to-deploy-pageonex-on-heroku-and-the-required-changes/#comment-21</link>
+
+		<dc:creator><![CDATA[p]]></dc:creator>
+		<pubDate>Fri, 24 Aug 2012 19:00:03 +0000</pubDate>
+		<guid isPermaLink="false">http://montera34.org/pageonex/?p=241#comment-21</guid>
+
+					<description><![CDATA[We&#039;ve been testing this guide, and here are some tricks to make it work on heroku without the need of installing the (painful gem pg).
+
+0. Download the code in a s¡.zip at https://github.com/numeroteca/PageOneX-ruby
+or type in your console
+$ git clone git@github.com:numeroteca/PageOneX-ruby.git
+
+1. Go to the directory with the shell and type:
+$ heroku create pageonex  //choose your name instead of &quot;pageonex&quot; like &quot;pageonextester&quot;
+ it should return something like:
+&quot;Creating pageonextester... done, stack is cedar I think so
+http://pageonextest.herokuapp.com/ &#124; git@heroku.com:pageonextester.git &quot;
+
+
+After installing pg, you&#039;ll have to run bundle, and then commit the GemFile.lock 
+To install the pg gem you&#039;ll need  to install PostgreSQL
+In ubuntu via http://www.guia-ubuntu.org/index.php?title=PostgreSQL 
+$ sudo aptitude install postgresql-8.2 postgresql-client-8.2 pgadmin3     
+if you’re in OS X, try http://postgresapp.com via @dcabo
+Then run 
+$ gem install pg
+
+BUT, if you are not able to make this work, there is a way to cheat heroku and not need to install and bundle the pg gem that @ahmdrefat discovered:
+Copy the content of the GemFile.lock (copy it from the last lines in this comment) and overwrite (copy+paste) your own GemFile.lock.  Don&#039;t bundle!
+
+2. inig a git repository
+$ git init //initiating
+$ git add . //adding all the files
+$ git commit -m &quot;this is the first comment and the frist commit&quot; //commiting
+
+3. login to your heroku account
+$ heroku login //create a previous one at http://www.heroku.com/
+
+4. &#039;upload&#039; your project to heroku
+$ git push heroku master //if that fails try
+$ heroku keys:add ~/.ssh/id_rsa.pub //to send your key via http://stackoverflow.com/questions/4269922/permission-denied-publickey-when-deploying-heroku-code-fatal-the-remote-end
+
+5. 
+$ heroku run rake db:migrate 
+$ heroku run rake scraping:kiosko_names_cvs //to make the list of newspapers work
+
+6. Enjoy, go to the url generated http://pageonextester.herokuapp.com/ and enjoy!
+
+Soon you&#039;ll no need to do all this, as we hope to deploy it in pageonex.com asap!
+
+----------------
+GemFile.lock to be used to make heroku work
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionmailer (3.2.2)
+      actionpack (= 3.2.2)
+      mail (~&#062; 2.4.0)
+    actionpack (3.2.2)
+      activemodel (= 3.2.2)
+      activesupport (= 3.2.2)
+      builder (~&#062; 3.0.0)
+      erubis (~&#062; 2.7.0)
+      journey (~&#062; 1.0.1)
+      rack (~&#062; 1.4.0)
+      rack-cache (~&#062; 1.1)
+      rack-test (~&#062; 0.6.1)
+      sprockets (~&#062; 2.1.2)
+    activemodel (3.2.2)
+      activesupport (= 3.2.2)
+      builder (~&#062; 3.0.0)
+    activerecord (3.2.2)
+      activemodel (= 3.2.2)
+      activesupport (= 3.2.2)
+      arel (~&#062; 3.0.2)
+      tzinfo (~&#062; 0.3.29)
+    activeresource (3.2.2)
+      activemodel (= 3.2.2)
+      activesupport (= 3.2.2)
+    activesupport (3.2.2)
+      i18n (~&#062; 0.6)
+      multi_json (~&#062; 1.0)
+    addressable (2.2.8)
+    arel (3.0.2)
+    awesome_print (1.0.2)
+    bcrypt-ruby (3.0.1)
+    builder (3.0.0)
+    capybara (1.1.2)
+      mime-types (&#062;= 1.16)
+      nokogiri (&#062;= 1.3.3)
+      rack (&#062;= 1.0.0)
+      rack-test (&#062;= 0.5.4)
+      selenium-webdriver (~&#062; 2.0)
+      xpath (~&#062; 0.1.4)
+    childprocess (0.3.2)
+      ffi (~&#062; 1.0.6)
+    coffee-rails (3.2.2)
+      coffee-script (&#062;= 2.2.0)
+      railties (~&#062; 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.3.3)
+    commonjs (0.2.5)
+    daemons (1.1.8)
+    devise (2.0.4)
+      bcrypt-ruby (~&#062; 3.0)
+      orm_adapter (~&#062; 0.0.3)
+      railties (~&#062; 3.1)
+      warden (~&#062; 1.1.1)
+    diff-lcs (1.1.3)
+    erubis (2.7.0)
+    eventmachine (0.12.10)
+    execjs (1.4.0)
+      multi_json (~&#062; 1.0)
+    factory_girl (3.0.0)
+      activesupport (&#062;= 3.0.0)
+    factory_girl_rails (3.0.0)
+      factory_girl (~&#062; 3.0.0)
+      railties (&#062;= 3.0.0)
+    faker (1.0.1)
+      i18n (~&#062; 0.4)
+    ffi (1.0.11)
+    foreman (0.51.0)
+      thor (&#062;= 0.13.6)
+    guard (1.0.1)
+      ffi (&#062;= 0.5.0)
+      thor (~&#062; 0.14.6)
+    guard-rspec (0.7.0)
+      guard (&#062;= 0.10.0)
+    hike (1.2.1)
+    i18n (0.6.0)
+    journey (1.0.4)
+    jquery-rails (2.0.2)
+      railties (&#062;= 3.2.0,  0.14)
+    jquery-ui-rails (1.1.0)
+      jquery-rails
+      railties (&#062;= 3.1.0)
+    json (1.7.3)
+    launchy (2.0.5)
+      addressable (~&#062; 2.2.6)
+    less (2.0.12)
+      commonjs (~&#062; 0.2.0)
+      therubyracer (~&#062; 0.9.9)
+    less-rails (2.1.8)
+      actionpack (&#062;= 3.1)
+      less (~&#062; 2.0.7)
+    libv8 (3.3.10.4)
+    libwebsocket (0.1.3)
+      addressable
+    mail (2.4.4)
+      i18n (&#062;= 0.4.0)
+      mime-types (~&#062; 1.16)
+      treetop (~&#062; 1.4.8)
+    mime-types (1.19)
+    multi_json (1.3.6)
+    nokogiri (1.5.5)
+    orm_adapter (0.0.7)
+    pg (0.14.0)
+    polyglot (0.3.3)
+    rack (1.4.1)
+    rack-cache (1.2)
+      rack (&#062;= 0.4)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.1)
+      rack (&#062;= 1.0)
+    rails (3.2.2)
+      actionmailer (= 3.2.2)
+      actionpack (= 3.2.2)
+      activerecord (= 3.2.2)
+      activeresource (= 3.2.2)
+      activesupport (= 3.2.2)
+      bundler (~&#062; 1.0)
+      railties (= 3.2.2)
+    railties (3.2.2)
+      actionpack (= 3.2.2)
+      activesupport (= 3.2.2)
+      rack-ssl (~&#062; 1.3.2)
+      rake (&#062;= 0.8.7)
+      rdoc (~&#062; 3.4)
+      thor (~&#062; 0.14.6)
+    rake (0.9.2.2)
+    rdoc (3.12)
+      json (~&#062; 1.4)
+    rspec (2.9.0)
+      rspec-core (~&#062; 2.9.0)
+      rspec-expectations (~&#062; 2.9.0)
+      rspec-mocks (~&#062; 2.9.0)
+    rspec-core (2.9.0)
+    rspec-expectations (2.9.1)
+      diff-lcs (~&#062; 1.1.3)
+    rspec-mocks (2.9.0)
+    rspec-rails (2.9.0)
+      actionpack (&#062;= 3.0)
+      activesupport (&#062;= 3.0)
+      railties (&#062;= 3.0)
+      rspec (~&#062; 2.9.0)
+    rubyzip (0.9.9)
+    sass (3.1.19)
+    sass-rails (3.2.5)
+      railties (~&#062; 3.2.0)
+      sass (&#062;= 3.1.10)
+      tilt (~&#062; 1.3)
+    selenium-webdriver (2.24.0)
+      childprocess (&#062;= 0.2.5)
+      libwebsocket (~&#062; 0.1.3)
+      multi_json (~&#062; 1.0)
+      rubyzip
+    sprockets (2.1.3)
+      hike (~&#062; 1.2)
+      rack (~&#062; 1.0)
+      tilt (~&#062; 1.1, != 1.3.0)
+    sqlite3 (1.3.6)
+    therubyracer (0.9.10)
+      libv8 (~&#062; 3.3.10)
+    thin (1.3.1)
+      daemons (&#062;= 1.0.9)
+      eventmachine (&#062;= 0.12.6)
+      rack (&#062;= 1.0.0)
+    thor (0.14.6)
+    tilt (1.3.3)
+    treetop (1.4.10)
+      polyglot
+      polyglot (&#062;= 0.3.1)
+    twitter-bootstrap-rails (2.0.4)
+      actionpack (&#062;= 3.1)
+      less-rails (~&#062; 2.1.8)
+      railties (&#062;= 3.1)
+    tzinfo (0.3.33)
+    uglifier (1.2.5)
+      execjs (&#062;= 0.3.0)
+      multi_json (~&#062; 1.3)
+    warden (1.1.1)
+      rack (&#062;= 1.0)
+    xpath (0.1.4)
+      nokogiri (~&#062; 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  capybara
+  coffee-rails (~&#062; 3.2.1)
+  devise
+  factory_girl_rails
+  faker
+  foreman
+  guard-rspec
+  jquery-rails
+  jquery-ui-rails
+  launchy
+  pg
+  rails (= 3.2.2)
+  rspec-rails
+  sass-rails (~&#062; 3.2.3)
+  sqlite3
+  thin
+  twitter-bootstrap-rails
+  uglifier (&#062;= 1.0.3)]]></description>
+			<content:encoded><![CDATA[<p>We&#8217;ve been testing this guide, and here are some tricks to make it work on heroku without the need of installing the (painful gem pg).</p>
+<p>0. Download the code in a s¡.zip at <a href="https://github.com/numeroteca/PageOneX-ruby" rel="nofollow ugc">https://github.com/numeroteca/PageOneX-ruby</a><br />
+or type in your console<br />
+$ git clone <a href="mailto:git@github.com">git@github.com</a>:numeroteca/PageOneX-ruby.git</p>
+<p>1. Go to the directory with the shell and type:<br />
+$ heroku create pageonex  //choose your name instead of &#8220;pageonex&#8221; like &#8220;pageonextester&#8221;<br />
+ it should return something like:<br />
+&#8220;Creating pageonextester&#8230; done, stack is cedar I think so<br />
+<a href="http://pageonextest.herokuapp.com/" rel="nofollow ugc">http://pageonextest.herokuapp.com/</a> | <a href="mailto:git@heroku.com">git@heroku.com</a>:pageonextester.git &#8221;</p>
+<p>After installing pg, you&#8217;ll have to run bundle, and then commit the GemFile.lock<br />
+To install the pg gem you&#8217;ll need  to install PostgreSQL<br />
+In ubuntu via <a href="http://www.guia-ubuntu.org/index.php?title=PostgreSQL" rel="nofollow ugc">http://www.guia-ubuntu.org/index.php?title=PostgreSQL</a><br />
+$ sudo aptitude install postgresql-8.2 postgresql-client-8.2 pgadmin3<br />
+if you’re in OS X, try <a href="http://postgresapp.com" rel="nofollow ugc">http://postgresapp.com</a> via @dcabo<br />
+Then run<br />
+$ gem install pg</p>
+<p>BUT, if you are not able to make this work, there is a way to cheat heroku and not need to install and bundle the pg gem that @ahmdrefat discovered:<br />
+Copy the content of the GemFile.lock (copy it from the last lines in this comment) and overwrite (copy+paste) your own GemFile.lock.  Don&#8217;t bundle!</p>
+<p>2. inig a git repository<br />
+$ git init //initiating<br />
+$ git add . //adding all the files<br />
+$ git commit -m &#8220;this is the first comment and the frist commit&#8221; //commiting</p>
+<p>3. login to your heroku account<br />
+$ heroku login //create a previous one at <a href="http://www.heroku.com/" rel="nofollow ugc">http://www.heroku.com/</a></p>
+<p>4. &#8216;upload&#8217; your project to heroku<br />
+$ git push heroku master //if that fails try<br />
+$ heroku keys:add ~/.ssh/id_rsa.pub //to send your key via <a href="http://stackoverflow.com/questions/4269922/permission-denied-publickey-when-deploying-heroku-code-fatal-the-remote-end" rel="nofollow ugc">http://stackoverflow.com/questions/4269922/permission-denied-publickey-when-deploying-heroku-code-fatal-the-remote-end</a></p>
+<p>5.<br />
+$ heroku run rake db:migrate<br />
+$ heroku run rake scraping:kiosko_names_cvs //to make the list of newspapers work</p>
+<p>6. Enjoy, go to the url generated <a href="http://pageonextester.herokuapp.com/" rel="nofollow ugc">http://pageonextester.herokuapp.com/</a> and enjoy!</p>
+<p>Soon you&#8217;ll no need to do all this, as we hope to deploy it in pageonex.com asap!</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;-<br />
+GemFile.lock to be used to make heroku work</p>
+<p>GEM<br />
+  remote: <a href="https://rubygems.org/" rel="nofollow ugc">https://rubygems.org/</a><br />
+  specs:<br />
+    actionmailer (3.2.2)<br />
+      actionpack (= 3.2.2)<br />
+      mail (~&gt; 2.4.0)<br />
+    actionpack (3.2.2)<br />
+      activemodel (= 3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+      builder (~&gt; 3.0.0)<br />
+      erubis (~&gt; 2.7.0)<br />
+      journey (~&gt; 1.0.1)<br />
+      rack (~&gt; 1.4.0)<br />
+      rack-cache (~&gt; 1.1)<br />
+      rack-test (~&gt; 0.6.1)<br />
+      sprockets (~&gt; 2.1.2)<br />
+    activemodel (3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+      builder (~&gt; 3.0.0)<br />
+    activerecord (3.2.2)<br />
+      activemodel (= 3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+      arel (~&gt; 3.0.2)<br />
+      tzinfo (~&gt; 0.3.29)<br />
+    activeresource (3.2.2)<br />
+      activemodel (= 3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+    activesupport (3.2.2)<br />
+      i18n (~&gt; 0.6)<br />
+      multi_json (~&gt; 1.0)<br />
+    addressable (2.2.8)<br />
+    arel (3.0.2)<br />
+    awesome_print (1.0.2)<br />
+    bcrypt-ruby (3.0.1)<br />
+    builder (3.0.0)<br />
+    capybara (1.1.2)<br />
+      mime-types (&gt;= 1.16)<br />
+      nokogiri (&gt;= 1.3.3)<br />
+      rack (&gt;= 1.0.0)<br />
+      rack-test (&gt;= 0.5.4)<br />
+      selenium-webdriver (~&gt; 2.0)<br />
+      xpath (~&gt; 0.1.4)<br />
+    childprocess (0.3.2)<br />
+      ffi (~&gt; 1.0.6)<br />
+    coffee-rails (3.2.2)<br />
+      coffee-script (&gt;= 2.2.0)<br />
+      railties (~&gt; 3.2.0)<br />
+    coffee-script (2.2.0)<br />
+      coffee-script-source<br />
+      execjs<br />
+    coffee-script-source (1.3.3)<br />
+    commonjs (0.2.5)<br />
+    daemons (1.1.8)<br />
+    devise (2.0.4)<br />
+      bcrypt-ruby (~&gt; 3.0)<br />
+      orm_adapter (~&gt; 0.0.3)<br />
+      railties (~&gt; 3.1)<br />
+      warden (~&gt; 1.1.1)<br />
+    diff-lcs (1.1.3)<br />
+    erubis (2.7.0)<br />
+    eventmachine (0.12.10)<br />
+    execjs (1.4.0)<br />
+      multi_json (~&gt; 1.0)<br />
+    factory_girl (3.0.0)<br />
+      activesupport (&gt;= 3.0.0)<br />
+    factory_girl_rails (3.0.0)<br />
+      factory_girl (~&gt; 3.0.0)<br />
+      railties (&gt;= 3.0.0)<br />
+    faker (1.0.1)<br />
+      i18n (~&gt; 0.4)<br />
+    ffi (1.0.11)<br />
+    foreman (0.51.0)<br />
+      thor (&gt;= 0.13.6)<br />
+    guard (1.0.1)<br />
+      ffi (&gt;= 0.5.0)<br />
+      thor (~&gt; 0.14.6)<br />
+    guard-rspec (0.7.0)<br />
+      guard (&gt;= 0.10.0)<br />
+    hike (1.2.1)<br />
+    i18n (0.6.0)<br />
+    journey (1.0.4)<br />
+    jquery-rails (2.0.2)<br />
+      railties (&gt;= 3.2.0,  0.14)<br />
+    jquery-ui-rails (1.1.0)<br />
+      jquery-rails<br />
+      railties (&gt;= 3.1.0)<br />
+    json (1.7.3)<br />
+    launchy (2.0.5)<br />
+      addressable (~&gt; 2.2.6)<br />
+    less (2.0.12)<br />
+      commonjs (~&gt; 0.2.0)<br />
+      therubyracer (~&gt; 0.9.9)<br />
+    less-rails (2.1.8)<br />
+      actionpack (&gt;= 3.1)<br />
+      less (~&gt; 2.0.7)<br />
+    libv8 (3.3.10.4)<br />
+    libwebsocket (0.1.3)<br />
+      addressable<br />
+    mail (2.4.4)<br />
+      i18n (&gt;= 0.4.0)<br />
+      mime-types (~&gt; 1.16)<br />
+      treetop (~&gt; 1.4.8)<br />
+    mime-types (1.19)<br />
+    multi_json (1.3.6)<br />
+    nokogiri (1.5.5)<br />
+    orm_adapter (0.0.7)<br />
+    pg (0.14.0)<br />
+    polyglot (0.3.3)<br />
+    rack (1.4.1)<br />
+    rack-cache (1.2)<br />
+      rack (&gt;= 0.4)<br />
+    rack-ssl (1.3.2)<br />
+      rack<br />
+    rack-test (0.6.1)<br />
+      rack (&gt;= 1.0)<br />
+    rails (3.2.2)<br />
+      actionmailer (= 3.2.2)<br />
+      actionpack (= 3.2.2)<br />
+      activerecord (= 3.2.2)<br />
+      activeresource (= 3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+      bundler (~&gt; 1.0)<br />
+      railties (= 3.2.2)<br />
+    railties (3.2.2)<br />
+      actionpack (= 3.2.2)<br />
+      activesupport (= 3.2.2)<br />
+      rack-ssl (~&gt; 1.3.2)<br />
+      rake (&gt;= 0.8.7)<br />
+      rdoc (~&gt; 3.4)<br />
+      thor (~&gt; 0.14.6)<br />
+    rake (0.9.2.2)<br />
+    rdoc (3.12)<br />
+      json (~&gt; 1.4)<br />
+    rspec (2.9.0)<br />
+      rspec-core (~&gt; 2.9.0)<br />
+      rspec-expectations (~&gt; 2.9.0)<br />
+      rspec-mocks (~&gt; 2.9.0)<br />
+    rspec-core (2.9.0)<br />
+    rspec-expectations (2.9.1)<br />
+      diff-lcs (~&gt; 1.1.3)<br />
+    rspec-mocks (2.9.0)<br />
+    rspec-rails (2.9.0)<br />
+      actionpack (&gt;= 3.0)<br />
+      activesupport (&gt;= 3.0)<br />
+      railties (&gt;= 3.0)<br />
+      rspec (~&gt; 2.9.0)<br />
+    rubyzip (0.9.9)<br />
+    sass (3.1.19)<br />
+    sass-rails (3.2.5)<br />
+      railties (~&gt; 3.2.0)<br />
+      sass (&gt;= 3.1.10)<br />
+      tilt (~&gt; 1.3)<br />
+    selenium-webdriver (2.24.0)<br />
+      childprocess (&gt;= 0.2.5)<br />
+      libwebsocket (~&gt; 0.1.3)<br />
+      multi_json (~&gt; 1.0)<br />
+      rubyzip<br />
+    sprockets (2.1.3)<br />
+      hike (~&gt; 1.2)<br />
+      rack (~&gt; 1.0)<br />
+      tilt (~&gt; 1.1, != 1.3.0)<br />
+    sqlite3 (1.3.6)<br />
+    therubyracer (0.9.10)<br />
+      libv8 (~&gt; 3.3.10)<br />
+    thin (1.3.1)<br />
+      daemons (&gt;= 1.0.9)<br />
+      eventmachine (&gt;= 0.12.6)<br />
+      rack (&gt;= 1.0.0)<br />
+    thor (0.14.6)<br />
+    tilt (1.3.3)<br />
+    treetop (1.4.10)<br />
+      polyglot<br />
+      polyglot (&gt;= 0.3.1)<br />
+    twitter-bootstrap-rails (2.0.4)<br />
+      actionpack (&gt;= 3.1)<br />
+      less-rails (~&gt; 2.1.8)<br />
+      railties (&gt;= 3.1)<br />
+    tzinfo (0.3.33)<br />
+    uglifier (1.2.5)<br />
+      execjs (&gt;= 0.3.0)<br />
+      multi_json (~&gt; 1.3)<br />
+    warden (1.1.1)<br />
+      rack (&gt;= 1.0)<br />
+    xpath (0.1.4)<br />
+      nokogiri (~&gt; 1.3)</p>
+<p>PLATFORMS<br />
+  ruby</p>
+<p>DEPENDENCIES<br />
+  awesome_print<br />
+  capybara<br />
+  coffee-rails (~&gt; 3.2.1)<br />
+  devise<br />
+  factory_girl_rails<br />
+  faker<br />
+  foreman<br />
+  guard-rspec<br />
+  jquery-rails<br />
+  jquery-ui-rails<br />
+  launchy<br />
+  pg<br />
+  rails (= 3.2.2)<br />
+  rspec-rails<br />
+  sass-rails (~&gt; 3.2.3)<br />
+  sqlite3<br />
+  thin<br />
+  twitter-bootstrap-rails<br />
+  uglifier (&gt;= 1.0.3)</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+	<head>
+				<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<title>The easy way to run your own PageOneX deployment in heroku &laquo; PageOneX</title>
+		
+				<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; Feed" href="../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; Comments Feed" href="../../../../comments/feed/index.html" />
+<link rel="alternate" type="text/calendar" title="PageOneX &raquo; iCal Feed" href="../../../../events/index.html%3Fical=1" />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; The easy way to run your own PageOneX deployment in heroku Comments Feed" href="feed/index.html" />
+	<script type="text/javascript">
+		var ajaxurl = 'https://blog.pageonex.com/wp-admin/admin-ajax.php';
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.pageonex.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.2"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='userlist-style-css'  href='../../../../wp-content/plugins/wp-users-list-widget/css/style.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-common-skeleton-style-css'  href='../../../../wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css%3Fver=4.12.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-tooltip-css'  href='../../../../wp-content/plugins/the-events-calendar/common/src/resources/css/tooltip.min.css%3Fver=4.12.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-blog-designer-fontawesome-stylesheets-css'  href='../../../../wp-content/plugins/blog-designer/css/fontawesome-all.min.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-blog-designer-css-stylesheets-css'  href='../../../../wp-content/plugins/blog-designer/css/designer_css.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../../../wp-content/plugins/jquery-collapse-o-matic/light_style.css%3Fver=1.6.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tw-bootstrap-css'  href='../../../../wp-content/themes/pageonex-blog-bootstrap/css/bootstrap.min.css%3Fver=2.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='the-bootstrap-css'  href='../../../../wp-content/themes/pageonex-blog-bootstrap/style.min.css%3Fver=2.0.1.css' type='text/css' media='all' />
+<style id='the-bootstrap-inline-css' type='text/css'>
+body > .container{margin-top:68px;}@media(min-width: 980px){body > .container{margin-top:58px;}}
+</style>
+<link rel='stylesheet' id='dry_awp_theme_style-css'  href='../../../../wp-content/plugins/advanced-wp-columns/assets/css/awp-columns.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tmm-css'  href='../../../../wp-content/plugins/team-members/inc/css/tmm_style.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../../wp-includes/js/jquery/jquery.js%3Fver=1.12.4-wp'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/jquery/jquery-migrate.min.js%3Fver=1.4.1'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/blog-designer/js/designer.js%3Fver=5.4.2'></script>
+<link rel='https://api.w.org/' href='../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='PageOneX: timeline for a work in progress' href='../../../../index.html%3Fp=271.html' />
+<link rel='next' title='Intense PageOneX activity in a cold February' href='../../../../index.html%3Fp=297.html' />
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel="canonical" href="../../../../index.html%3Fp=275.html" />
+<link rel='shortlink' href='../../../../index.html%3Fp=275.html' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="../../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fblog.pageonex.com%252F2012%252F11%252F28%252Finstalling-your-own-pageonex-deployment-in-heroku%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fblog.pageonex.com%252F2012%252F11%252F28%252Finstalling-your-own-pageonex-deployment-in-heroku%252F&amp;format=xml" />
+<style type="text/css" id="tve_global_variables">:root{}</style><script src='https://wordpress.brownbag.me/?dm=92dfdf7b65c23102d23f0f69d602eef7&amp;action=load&amp;blogid=30&amp;siteid=1&amp;t=193012016&amp;back=https%3A%2F%2Fblog.pageonex.com%2F2012%2F11%2F28%2Finstalling-your-own-pageonex-deployment-in-heroku%2F%3Freplytocom%3D26' type='text/javascript'></script><meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://blog.pageonex.com"><link rel="https://theeventscalendar.com/" href="../../../../wp-json/tribe/events/v1/index.html" /><!-- All in one Favicon 4.7 -->	<style type="text/css">
+				#branding hgroup {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+			</style>
+		<!--[if lt IE 9]>
+		<script src="https://blog.pageonex.com/wp-content/themes/pageonex-blog-bootstrap/js/html5shiv.min.js" type="text/javascript"></script>
+		<script src="https://blog.pageonex.com/wp-content/themes/pageonex-blog-bootstrap/js/respond.min.js" type="text/javascript"></script>
+	<![endif]-->
+	<style type="text/css" id="thrive-default-styles"></style>	</head>
+	
+	<body class="post-template-default single single-post postid-275 single-format-standard tribe-no-js content-sidebar">
+		<div class="container">
+			<div id="page" class="hfeed row">
+								<header id="branding" role="banner" class="span12">
+										<hgroup>
+						<h1 id="site-title">
+							<a href="../../../../index.html" title="PageOneX" rel="home">
+								<span>PageOneX</span>
+							</a>
+						</h1>
+						<h2 id="site-description">Coding front pages</h2>
+					</hgroup>
+					
+					
+					<nav id="access" role="navigation">
+						<h3 class="assistive-text">Main menu</h3>
+						<div class="skip-link"><a class="assistive-text" href="index.html%3Freplytocom=26.html#content" title="Skip to primary content">Skip to primary content</a></div>
+						<div class="skip-link"><a class="assistive-text" href="index.html%3Freplytocom=26.html#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+												<div class="navbar navbar-fixed-top">
+							<div class="navbar-inner">
+								<div class="container">
+									<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+									<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</a>
+																		<span class="brand">PageOneX</span>
+																		<div class="nav-collapse">
+										<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav"><li id="menu-item-624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-624"><a href="http://pageonex.com">Home</a></li>
+<li id="menu-item-623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-623"><a href="../../../../index.html">Blog</a></li>
+<li id="menu-item-621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-621"><a href="../../../../index.html%3Fp=228.html">About</a></li>
+<li id="menu-item-627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-627"><a href="../../../../index.html%3Fp=376.html">Timeline</a></li>
+<li id="menu-item-625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-625"><a href="https://github.com/numeroteca/pageonex/wiki">Wiki</a></li>
+<li id="menu-item-620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-620"><a href="../../../../index.html%3Fp=283.html">Subscribe to Newsletter</a></li>
+<li id="menu-item-622" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622"><a href="../../../../index.html%3Fp=315.html">References</a></li>
+<li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="../../../../index.html%3Fp=356.html">Report bugs</a></li>
+</ul></div>	<form id="searchform" class="navbar-search pull-right" method="get" action="../../../../index.html">
+						<label for="s" class="assistive-text hidden">Search</label>
+						<input type="search" class="search-query" name="s" id="s" placeholder="Search" />
+					</form>								    </div>
+								</div>
+							</div>
+						</div>
+											</nav><!-- #access -->
+									</header><!-- #branding -->
+<section id="primary" class="span8">
+	
+		<div id="content" role="main">
+		<article id="post-275" class="post-275 post type-post status-publish format-standard hentry category-deployment tag-heroku">
+		
+	<header class="page-header">
+		<h1 class="entry-title">The easy way to run your own PageOneX deployment in heroku</h1>		<div class="entry-meta"><span class="sep">Posted on </span><a href="../../../../index.html%3Fp=275.html" title="3:44 pm" rel="bookmark"><time class="entry-date" datetime="2012-11-28T15:44:59+00:00" pubdate>November 28, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="../../../../author/pablo/index.html" title="View all posts by pablo" rel="author">pablo</a></span></span>		<span class="sep"> | </span>
+		<span class="comments-link">
+			<a href="../../../../index.html%3Fp=275.html#comments"><strong>7</strong> Replies</a>		</span>
+		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content clearfix">
+		<div>This is an easy way to set up your own version of PageOneX in <a href="http://heroku.com">Heroku</a>, and make the process easier than in <a href="http://montera34.org/pageonex/2012/08/24/how-to-deploy-pageonex-on-heroku-and-the-required-changes/">the last post about this topic</a>.</div>
+<div></div>
+<div>Heroku is a free hosting service to test web apps. The free service allows you to run your app with a limit in its data base.</div>
+<div>If something is not clear, ask in the comments. We&#8217;ll updating this post.</div>
+<div></div>
+<div>You&#8217;ll need:</div>
+<div>
+<ul>
+<li><a href="https://help.ubuntu.com/community/Git">Git</a> installed in your computer</li>
+<li>an account in <a href="http://heroku.com">Heroku </a></li>
+<li>install the <a href="https://toolbelt.herokuapp.com/">heroku toolbelt</a></li>
+</ul>
+</div>
+<div>Let&#8217;s say you want to create your app named &#8220;pageonextesterx&#8221;. It will have the url: <a href="http://pageonextesterx.herokuapp.com/">http://pageonextesterx.herokuapp.com</a>.  &#8220;pageonextesterx&#8221; must be an unique name, no other app should have your chosen name. So change it!</div>
+<div></div>
+<div>Run the following commands in a terminal (tested with ubuntu)</div>
+<pre>git clone git@heroku.com:pageonex.git</pre>
+<div>It clones (downloads) the files for the deployment. You can also download them from: <a href="http://pageonex.com/pageonextester-heroku-1.0.1.zip">http://pageonex.com/pageonextester-heroku-1.0.1.zip</a></div>
+<div></div>
+<div>Create your app at Heroku:</div>
+<pre>heroku create pageonextesterx</pre>
+<div>For this you&#8217;ll have had to create your own Heroku account before and choose a name that no one has taken before.</div>
+<div></div>
+<div>Go into the created folder.</div>
+<pre>cd pageonex</pre>
+<div>Edit the git config file at .git/config</div>
+<pre>nano .git/config</pre>
+<div>or use</div>
+<pre>gedit .git/config</pre>
+<div>The file will open in the &#8220;nano&#8221; editor or &#8220;gedit&#8221; editor. You can also go to the hidden folder .git and open the &#8220;config&#8221; file.</div>
+<div>Once inside you have to change &#8220;git@heroku.com:pageonex.git&#8221; by &#8220;git@heroku.com:pageonextesterx.git&#8221;. This will tell Git where to upload your files. If you try to upload (push) to &#8220;git@heroku.com:pageonex.git&#8221; you will not have the rights to do it.</div>
+<div></div>
+<div>Now you are ready to upload your app:</div>
+<pre>git push heroku master</pre>
+<div>You will need to upload your ssh key to heroku. You can find it (in ubuntu) at /home/.ssh/id_rsa.pub, and have to copy paste in your heroku account settings page.<br />
+To view hidden files you have to activate view of hidden files.</div>
+<div>It will upload your files to your deployment. Now you need to run more commands:</div>
+<pre>heroku run rake db:migrate --app pageonextesterx</pre>
+<div>We are adding &#8220;&#8211;app pageonextesterx&#8221; is to specify which of the apps that you have it&#8217;s being used.</div>
+<pre>heroku run rake scraping:kiosko_names --app pageonextesterx</pre>
+<div>Go to <a href="http://pageonextesterx.herokuapp.com/">http://pageonextesterx.herokuapp.com</a>. You are ready to go!</div>
+<div></div>
+<div>Note: We hope to have soon our own deployment running at pageonex.com, so you don&#8217;t have to install your own. We are providing you with this manual to help run your own deployment. Running it in your computer is more difficult than doing it remotely in eroku, as you do no have to install rails, ruby or the gems associated with the project.</div>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links block">Posted in <a href="../../../../category/deployment/index.html" rel="category tag">Deployment</a>.</span><span class="tag-links block">Tagged <a href="../../../../tag/heroku/index.html" rel="tag">heroku</a>.</span>	</footer><!-- .entry-footer -->
+	
+	</article><!-- #post-275 -->
+		<div id="comments">
+			<h2 id="comments-title">
+				7 thoughts on &ldquo;<span>The easy way to run your own PageOneX deployment in heroku</span>&rdquo;			</h2>
+		
+					
+			<ol class="commentlist unstyled">
+					
+		<li id="li-comment-24" class="pingback even thread-even depth-1">
+			<p class="row">
+				<strong class="ping-label span1">Pingback:</strong>
+				<span class="span7"><a href='http://numeroteca.org/2012/11/28/the-easy-way-to-run-your-own-pageonex-deployment-in-heroku/' rel='external nofollow ugc' class='url'>numeroteca &raquo; The easy way to run your own PageOneX deployment in heroku</a></span>
+			</p>
+	
+	</li><!-- #comment-## -->
+		
+		<li  id="li-comment-25" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="comment-25" class="comment row">
+				<div class="comment-author-avatar span1">
+					<img alt='' src='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span7">
+					<p class="comment-author vcard">
+						<span class="fn">Alecs</span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-25"><time pubdate datetime="2013-09-19T00:43:20+00:00">September 19, 2013 at 12:43 am</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span7">
+					<p>hello</p>
+<p>the .zip link is dead. </p>
+<p>Is the github version suitable for heroku?</p>
+<p>Cheers</p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=25.html#respond' data-commentid="25" data-postid="275" data-belowelement="comment-25" data-respondelement="respond" aria-label='Reply to Alecs'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-25 .comment -->
+			
+	<ul class="children">
+		
+		<li  id="li-comment-27" class="comment even depth-2">
+			<article id="comment-27" class="comment row">
+				<div class="comment-author-avatar span1 offset1">
+					<img alt='' src='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span6">
+					<p class="comment-author vcard">
+						<span class="fn">Alecs</span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-27"><time pubdate datetime="2013-09-19T01:03:52+00:00">September 19, 2013 at 1:03 am</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span6">
+					<p>found the heroku branch on github </p>
+<p>Thanks</p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=27.html#respond' data-commentid="27" data-postid="275" data-belowelement="comment-27" data-respondelement="respond" aria-label='Reply to Alecs'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-27 .comment -->
+			
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		
+		<li  id="li-comment-26" class="comment byuser comment-author-pablo bypostauthor odd alt thread-even depth-1">
+			<article id="comment-26" class="comment row">
+				<div class="comment-author-avatar span1">
+					<img alt='' src='https://secure.gravatar.com/avatar/99a4743797a769c90ff7d79eb4c8e0a2?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/99a4743797a769c90ff7d79eb4c8e0a2?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span7">
+					<p class="comment-author vcard">
+						<span class="fn">numeroteca</span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-26"><time pubdate datetime="2013-09-19T01:02:10+00:00">September 19, 2013 at 1:02 am</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span7">
+					<p>Sorry about the dead link.</p>
+<p>I haven&#8217;t tested it in Heroku recently but it should work. To make a light installation (and not download the images) check in the wiki <a href="https://github.com/numeroteca/pageonex/wiki#switch-between-embedding-image-files-from-kioskonet-or-storing-locally" title="" rel="nofollow">https://github.com/numeroteca/pageonex/wiki#switch-between-embedding-image-files-from-kioskonet-or-storing-locally</a>:<br />
+Change value to false at config/initializers/application.rb:<br />
+<code>Pageonex::Application.config.use_local_images = true</code></p>
+<p>Check the wiki Developer section for more updated details on how t odeploy it.</p>
+<p>If the most recent version doesn&#8217;t work in heroku, please report here, and I can rescue an old one that works with the instructions posted in this post.</p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=26.html#respond' data-commentid="26" data-postid="275" data-belowelement="comment-26" data-respondelement="respond" aria-label='Reply to numeroteca'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-26 .comment -->
+			
+	<ul class="children">
+		
+		<li  id="li-comment-28" class="comment even depth-2">
+			<article id="comment-28" class="comment row">
+				<div class="comment-author-avatar span1 offset1">
+					<img alt='' src='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span6">
+					<p class="comment-author vcard">
+						<span class="fn">Alecs</span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-28"><time pubdate datetime="2013-09-19T01:07:58+00:00">September 19, 2013 at 1:07 am</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span6">
+					<p>We tried with the origin/master branch and the origin/heroku branch with no luck. </p>
+<p>We get the following message</p>
+<p><code><br />
+heroku run rake db:migrate --app d4pageonex --trace<br />
+Running `rake db:migrate --trace` attached to terminal... up, run.5808<br />
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/01/04/rails-3-2-0-rc2-has-been-released. (called from  at /app/Rakefile:7)<br />
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/01/04/rails-3-2-0-rc2-has-been-released. (called from  at /app/Rakefile:7)<br />
+rake aborted!<br />
+cannot load such file -- nokogiri<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:251:in `require'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:251:in `block in require'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:236:in `load_dependency'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:251:in `require'<br />
+/app/lib/tasks/scraping.rake:3:in `'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:245:in `load'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:245:in `block in load'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:236:in `load_dependency'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/activesupport-3.2.2/lib/active_support/dependencies.rb:245:in `load'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/railties-3.2.2/lib/rails/engine.rb:425:in `block in load_tasks'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/railties-3.2.2/lib/rails/engine.rb:425:in `each'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/railties-3.2.2/lib/rails/engine.rb:425:in `load_tasks'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/railties-3.2.2/lib/rails/application.rb:145:in `load_tasks'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/railties-3.2.2/lib/rails/railtie/configurable.rb:30:in `method_missing'<br />
+/app/Rakefile:7:in `'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/rake_module.rb:25:in `load'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/rake_module.rb:25:in `load_rakefile'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:501:in `raw_load_rakefile'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:82:in `block in load_rakefile'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:133:in `standard_exception_handling'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:81:in `load_rakefile'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:65:in `block in run'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:133:in `standard_exception_handling'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/lib/rake/application.rb:63:in `run'<br />
+/app/vendor/bundle/ruby/2.0.0/gems/rake-0.9.2.2/bin/rake:33:in `'<br />
+/app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `load'<br />
+/app/vendor/bundle/ruby/2.0.0/bin/rake:23:in `'<br />
+</code></p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=28.html#respond' data-commentid="28" data-postid="275" data-belowelement="comment-28" data-respondelement="respond" aria-label='Reply to Alecs'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-28 .comment -->
+			
+	<ul class="children">
+		
+		<li  id="li-comment-29" class="comment byuser comment-author-pablo bypostauthor odd alt depth-3">
+			<article id="comment-29" class="comment row">
+				<div class="comment-author-avatar span1 offset2">
+					<img alt='' src='https://secure.gravatar.com/avatar/99a4743797a769c90ff7d79eb4c8e0a2?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/99a4743797a769c90ff7d79eb4c8e0a2?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span5">
+					<p class="comment-author vcard">
+						<span class="fn"><a href='http://numeroteca.org' rel='external nofollow ugc' class='url'>numeroteca</a></span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-29"><time pubdate datetime="2013-09-19T21:27:53+00:00">September 19, 2013 at 9:27 pm</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span5">
+					<p>I tried to make a new install in heroku with the old version of PageOneX, <a href="http://blog.pageonex.com/wp-content/uploads/2012/11/pageonexonheroku.zip" rel="nofollow">download pageonexonheroku.zip</a>, which is a clone of what was running in <a href="http://pageonextester5.herokuapp.com/" rel="nofollow ugc">http://pageonextester5.herokuapp.com/</a> and <a href="http://pageonextester6.herokuapp.com/" rel="nofollow ugc">http://pageonextester6.herokuapp.com/</a>, the former alpha site of PageOneX.<br />
+The installation worked well.</p>
+<p>The result is this: <a href="http://pageonextesterxxx.herokuapp.com/" title="" rel="nofollow"> </a><a href="http://pageonextesterxxx.herokuapp.com/" rel="nofollow ugc">http://pageonextesterxxx.herokuapp.com/</a>, which seems to fail in the javascript loading and css from bootstrap, among other things, and it is not usable. I do not know what is happening.</p>
+<p>I also tried to install the last PageOneX version in Heroku and I ended up having the same problem with &#8220;nokogiri&#8221; gem that you report, and none of the answers that I found worked for me. I will ask in the <a href="http://mailman.mit.edu/mailman/listinfo/pageonexdev" title="ageOneX developers list" rel="nofollow"> PageOneX developers list</a> to see if someones knows the answer.</p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=29.html#respond' data-commentid="29" data-postid="275" data-belowelement="comment-29" data-respondelement="respond" aria-label='Reply to numeroteca'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-29 .comment -->
+			
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		
+		<li  id="li-comment-30" class="comment even thread-odd thread-alt depth-1">
+			<article id="comment-30" class="comment row">
+				<div class="comment-author-avatar span1">
+					<img alt='' src='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/37233dfd705a0f1d4662772b20e1c7d6?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' />				</div>
+				<footer class="comment-meta span7">
+					<p class="comment-author vcard">
+						<span class="fn">Alecs</span> <span class="says">said</span> on <a href="../../../../index.html%3Fp=275.html#comment-30"><time pubdate datetime="2013-09-19T22:40:24+00:00">September 19, 2013 at 10:40 pm</time></a>:					</p><!-- .comment-author .vcard -->
+	
+						
+				</footer><!-- .comment-meta -->
+	
+				<div class="comment-content span7">
+					<p>Hello, </p>
+<p>Thanks for the update. </p>
+<p>I just opened an issue on github<br />
+<a href="https://github.com/numeroteca/pageonex/issues/186" rel="nofollow ugc">https://github.com/numeroteca/pageonex/issues/186</a></p>
+<a rel='nofollow' class='comment-reply-link' href='index.html%3Freplytocom=30.html#respond' data-commentid="30" data-postid="275" data-belowelement="comment-30" data-respondelement="respond" aria-label='Reply to Alecs'>Reply <span>&darr;</span></a>				</div><!-- .comment-content -->
+			</article><!-- #comment-30 .comment -->
+			
+	</li><!-- #comment-## -->
+			</ol><!-- .commentlist .unstyled -->
+		
+					
+		</div><!-- #comments -->
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><legend>Leave a reply to <a href="index.html%3Freplytocom=26.html#comment-26">numeroteca</a></legend> <small><a rel="nofollow" id="cancel-comment-reply-link" href="../../../../index.html%3Fp=275.html#respond">Cancel reply</a></small></h3><form action="https://blog.pageonex.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="form-horizontal"><div class="comment-form-comment control-group"><label class="control-label" for="comment">Comment</label><div class="controls"><textarea class="span7" id="comment" name="comment" rows="8" aria-required="true"></textarea></div></div><div class="form-allowed-tags control-group"><label class="control-label">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: </label><div class="controls"><pre>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </pre></div></div>
+									 <div class="form-actions"><div class="comment-form-author control-group">
+				<label for="author" class="control-label">Name</label>
+				<div class="controls">
+					<input id="author" name="author" type="text" value="" size="30" aria-required='true' />
+					<p class="help-inline"><span class="required">required</span></p>
+				</div>
+			</div>
+<div class="comment-form-email control-group">
+				<label for="email" class="control-label">Email</label>
+				<div class="controls">
+					<input id="email" name="email" type="email" value="" size="30" aria-required='true' />
+					<p class="help-inline"><span class="required">required</span>, will not be published</p>
+				</div>
+			</div>
+<div class="comment-form-url control-group">
+				<label for="url" class="control-label">Website</label>
+				<div class="controls">
+					<input id="url" name="url" type="url" value="" size="30" />
+				</div>
+			</div>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='275' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='26' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a0851bc1fc" /></p></div></div><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="212"/></p></form>	</div><!-- #respond -->
+			
+		<nav id="nav-single" class="pager">
+			<h3 class="assistive-text">Post navigation</h3>
+			<span class="next"><a href="../../../../index.html%3Fp=297.html" rel="next">Next Post <span class="meta-nav">&rarr;</span></a></span>
+			<span class="previous"><a href="../../../../index.html%3Fp=271.html" rel="prev"><span class="meta-nav">&larr;</span> Previous Post</a></span>
+		</nav><!-- #nav-single -->
+		
+			</div><!-- #content -->
+	</section><!-- #primary -->
+
+<section id="secondary" class="widget-area offset1 span3" role="complementary">
+	<aside id="text-3" class="widget well widget_text">			<div class="textwidget"><p>Twitter: <a class="btn" href="https://twitter.com/PageOneX">@PageOneX</a></p>
+<p><a href="http://pageonex.com"><img src="http://pageonex.com/assets/header-blog-2.png" /><br />
+PageOneX</a> makes it easy to track, code, and visualize major news stories based on the proportion of newspaper front pages that they take up.</p>
+</div>
+		</aside><aside id="text-5" class="widget well widget_text">			<div class="textwidget"><p><a title="PageOneX in Pinterest" href="http://pinterest.com/numeroteca/newspaper-front-page-visualizations/"><img src="http://pageonex.wordpress.brownbag.me/wp-content/uploads/sites/30/2013/02/pinterest_p.png" alt="PageOneX in Pinterest" width="" /><br />
+Gallery of PageOneX projects in Pinterest.</a></p>
+</div>
+		</aside>		<aside id="recent-posts-2" class="widget well widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../../../../index.html%3Fp=662.html">PageonexR: proces Pageonex data with R</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=652.html">Brand new features: edit areas, fork threads, multi taxonomy!</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=640.html">We didn&#8217;t get the grant to develop new features but&#8230; look how cool they are!</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=630.html">Peer reviewed paper about PageOneX published</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=618.html">Number of PageOneX.com users keeps growing</a>
+									</li>
+					</ul>
+		</aside><aside id="rss-3" class="widget well widget_rss"><h2 class="widget-title"><a class="rsswidget" href="https://github.com/numeroteca/pageonex/commits/master.atom"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="../../../../wp-includes/images/rss.png" alt="RSS" /></a> <a class="rsswidget" href="https://github.com/montera34/pageonex/commits/master">PageOneX Commits</a></h2><ul><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/b5da84415a87a9c5e49b5728aed0aa498106e83f'>update release version v0.0.1-rc2</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/47500492b8fa6606f094752c43e7a8c8e0cc931e'>add version number to footer</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/dce99163060a62b1fe1d1cff7e3b30d9801bba43'>add version number to footer</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/166f1366f8872cd1313a73b51baeb0da74bf39c7'>Merge pull request #229 from montera34/make-raw-json-public</a></li></ul></aside><aside id="categories-2" class="widget well widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+				<li class="cat-item cat-item-4"><a href="../../../../category/case-study/index.html">case study</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="../../../../category/code/index.html">code</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="../../../../category/data-model/index.html">Data Model</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="../../../../category/deployment/index.html">Deployment</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../../../category/display/index.html">Display</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="../../../../category/experiments/index.html">experiments</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="../../../../category/how-pageonex-goes/index.html">How PageOneX goes</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="../../../../category/meetings/index.html">meetings</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="../../../../category/scraping/index.html">Scraping</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../../../category/uncategorized/index.html">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="../../../../category/user-interface/index.html">User Interface</a>
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget well widget_archive"><h2 class="widget-title">Archives</h2>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value='https://blog.pageonex.com/2020/05/'> May 2020 </option>
+	<option value='https://blog.pageonex.com/2019/05/'> May 2019 </option>
+	<option value='https://blog.pageonex.com/2018/07/'> July 2018 </option>
+	<option value='https://blog.pageonex.com/2016/05/'> May 2016 </option>
+	<option value='https://blog.pageonex.com/2016/03/'> March 2016 </option>
+	<option value='https://blog.pageonex.com/2014/09/'> September 2014 </option>
+	<option value='https://blog.pageonex.com/2014/02/'> February 2014 </option>
+	<option value='https://blog.pageonex.com/2013/11/'> November 2013 </option>
+	<option value='https://blog.pageonex.com/2013/10/'> October 2013 </option>
+	<option value='https://blog.pageonex.com/2013/09/'> September 2013 </option>
+	<option value='https://blog.pageonex.com/2013/08/'> August 2013 </option>
+	<option value='https://blog.pageonex.com/2013/06/'> June 2013 </option>
+	<option value='https://blog.pageonex.com/2013/05/'> May 2013 </option>
+	<option value='https://blog.pageonex.com/2013/04/'> April 2013 </option>
+	<option value='https://blog.pageonex.com/2013/03/'> March 2013 </option>
+	<option value='https://blog.pageonex.com/2013/02/'> February 2013 </option>
+	<option value='https://blog.pageonex.com/2012/11/'> November 2012 </option>
+	<option value='https://blog.pageonex.com/2012/08/'> August 2012 </option>
+	<option value='https://blog.pageonex.com/2012/07/'> July 2012 </option>
+	<option value='https://blog.pageonex.com/2012/06/'> June 2012 </option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-2" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+
+		</aside><aside id="tag_cloud-3" class="widget well widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href="../../../../tag/15m/index.html" class="tag-cloud-link tag-link-14 tag-link-position-1" style="font-size: 8pt;" aria-label="15M (1 item)">15M</a>
+<a href="../../../../tag/ads/index.html" class="tag-cloud-link tag-link-15 tag-link-position-2" style="font-size: 8pt;" aria-label="Ads (1 item)">Ads</a>
+<a href="../../../../tag/agenda-setting/index.html" class="tag-cloud-link tag-link-16 tag-link-position-3" style="font-size: 8pt;" aria-label="agenda setting (1 item)">agenda setting</a>
+<a href="../../../../tag/amelrame/index.html" class="tag-cloud-link tag-link-17 tag-link-position-4" style="font-size: 8pt;" aria-label="Amelrame (1 item)">Amelrame</a>
+<a href="../../../../tag/barcelona/index.html" class="tag-cloud-link tag-link-18 tag-link-position-5" style="font-size: 8pt;" aria-label="Barcelona (1 item)">Barcelona</a>
+<a href="../../../../tag/bbc/index.html" class="tag-cloud-link tag-link-19 tag-link-position-6" style="font-size: 8pt;" aria-label="BBC (1 item)">BBC</a>
+<a href="../../../../tag/brazil/index.html" class="tag-cloud-link tag-link-20 tag-link-position-7" style="font-size: 16.4pt;" aria-label="Brazil (2 items)">Brazil</a>
+<a href="../../../../tag/coding/index.html" class="tag-cloud-link tag-link-21 tag-link-position-8" style="font-size: 8pt;" aria-label="coding (1 item)">coding</a>
+<a href="../../../../tag/colombia/index.html" class="tag-cloud-link tag-link-22 tag-link-position-9" style="font-size: 8pt;" aria-label="Colombia (1 item)">Colombia</a>
+<a href="../../../../tag/database/index.html" class="tag-cloud-link tag-link-23 tag-link-position-10" style="font-size: 8pt;" aria-label="database (1 item)">database</a>
+<a href="../../../../tag/datanalysis15m/index.html" class="tag-cloud-link tag-link-24 tag-link-position-11" style="font-size: 8pt;" aria-label="datanalysis15M (1 item)">datanalysis15M</a>
+<a href="../../../../tag/datavis/index.html" class="tag-cloud-link tag-link-25 tag-link-position-12" style="font-size: 8pt;" aria-label="datavis (1 item)">datavis</a>
+<a href="../../../../tag/deploy/index.html" class="tag-cloud-link tag-link-26 tag-link-position-13" style="font-size: 8pt;" aria-label="deploy (1 item)">deploy</a>
+<a href="../../../../tag/deployment-2/index.html" class="tag-cloud-link tag-link-27 tag-link-position-14" style="font-size: 8pt;" aria-label="deployment (1 item)">deployment</a>
+<a href="../../../../tag/display-2/index.html" class="tag-cloud-link tag-link-28 tag-link-position-15" style="font-size: 8pt;" aria-label="display (1 item)">display</a>
+<a href="../../../../tag/el-espectador/index.html" class="tag-cloud-link tag-link-29 tag-link-position-16" style="font-size: 8pt;" aria-label="El Espectador (1 item)">El Espectador</a>
+<a href="../../../../tag/elpais/index.html" class="tag-cloud-link tag-link-31 tag-link-position-17" style="font-size: 8pt;" aria-label="elpais (1 item)">elpais</a>
+<a href="../../../../tag/el-tiempo/index.html" class="tag-cloud-link tag-link-30 tag-link-position-18" style="font-size: 8pt;" aria-label="El Tiempo (1 item)">El Tiempo</a>
+<a href="../../../../tag/embed/index.html" class="tag-cloud-link tag-link-32 tag-link-position-19" style="font-size: 16.4pt;" aria-label="embed (2 items)">embed</a>
+<a href="../../../../tag/heroku/index.html" class="tag-cloud-link tag-link-33 tag-link-position-20" style="font-size: 22pt;" aria-label="heroku (3 items)">heroku</a>
+<a href="../../../../tag/ijoc/index.html" class="tag-cloud-link tag-link-34 tag-link-position-21" style="font-size: 8pt;" aria-label="ijoc (1 item)">ijoc</a>
+<a href="../../../../tag/kiosko/index.html" class="tag-cloud-link tag-link-35 tag-link-position-22" style="font-size: 22pt;" aria-label="kiosko (3 items)">kiosko</a>
+<a href="../../../../tag/news/index.html" class="tag-cloud-link tag-link-37 tag-link-position-23" style="font-size: 8pt;" aria-label="News (1 item)">News</a>
+<a href="../../../../tag/newseum/index.html" class="tag-cloud-link tag-link-38 tag-link-position-24" style="font-size: 8pt;" aria-label="newseum (1 item)">newseum</a>
+<a href="../../../../tag/new-york-times/index.html" class="tag-cloud-link tag-link-36 tag-link-position-25" style="font-size: 8pt;" aria-label="New York Times (1 item)">New York Times</a>
+<a href="../../../../tag/nytimes/index.html" class="tag-cloud-link tag-link-39 tag-link-position-26" style="font-size: 8pt;" aria-label="nytimes (1 item)">nytimes</a>
+<a href="../../../../tag/occupygezi/index.html" class="tag-cloud-link tag-link-40 tag-link-position-27" style="font-size: 8pt;" aria-label="occupygezi (1 item)">occupygezi</a>
+<a href="../../../../tag/online-newspaper/index.html" class="tag-cloud-link tag-link-41 tag-link-position-28" style="font-size: 8pt;" aria-label="online newspaper (1 item)">online newspaper</a>
+<a href="../../../../tag/opacity/index.html" class="tag-cloud-link tag-link-42 tag-link-position-29" style="font-size: 8pt;" aria-label="opacity (1 item)">opacity</a>
+<a href="../../../../tag/pablo-rey-mazon/index.html" class="tag-cloud-link tag-link-43 tag-link-position-30" style="font-size: 8pt;" aria-label="pablo rey mazón (1 item)">pablo rey mazón</a>
+<a href="../../../../tag/pageonexr/index.html" class="tag-cloud-link tag-link-68 tag-link-position-31" style="font-size: 16.4pt;" aria-label="pageonexR (2 items)">pageonexR</a>
+<a href="../../../../tag/paper/index.html" class="tag-cloud-link tag-link-44 tag-link-position-32" style="font-size: 8pt;" aria-label="paper (1 item)">paper</a>
+<a href="../../../../tag/paro-agrario/index.html" class="tag-cloud-link tag-link-45 tag-link-position-33" style="font-size: 8pt;" aria-label="paro agrario (1 item)">paro agrario</a>
+<a href="../../../../tag/portuguese/index.html" class="tag-cloud-link tag-link-46 tag-link-position-34" style="font-size: 8pt;" aria-label="portuguese (1 item)">portuguese</a>
+<a href="../../../../tag/processing/index.html" class="tag-cloud-link tag-link-47 tag-link-position-35" style="font-size: 8pt;" aria-label="processing (1 item)">processing</a>
+<a href="../../../../tag/protesters/index.html" class="tag-cloud-link tag-link-48 tag-link-position-36" style="font-size: 16.4pt;" aria-label="protesters (2 items)">protesters</a>
+<a href="../../../../tag/rails/index.html" class="tag-cloud-link tag-link-49 tag-link-position-37" style="font-size: 22pt;" aria-label="rails (3 items)">rails</a>
+<a href="../../../../tag/real-size/index.html" class="tag-cloud-link tag-link-50 tag-link-position-38" style="font-size: 8pt;" aria-label="real size (1 item)">real size</a>
+<a href="../../../../tag/redesign/index.html" class="tag-cloud-link tag-link-51 tag-link-position-39" style="font-size: 8pt;" aria-label="redesign (1 item)">redesign</a>
+<a href="../../../../tag/ruby/index.html" class="tag-cloud-link tag-link-52 tag-link-position-40" style="font-size: 22pt;" aria-label="ruby (3 items)">ruby</a>
+<a href="../../../../tag/sasha-costnaza-chock/index.html" class="tag-cloud-link tag-link-53 tag-link-position-41" style="font-size: 8pt;" aria-label="sasha costnaza-chock (1 item)">sasha costnaza-chock</a>
+<a href="../../../../tag/scraper/index.html" class="tag-cloud-link tag-link-54 tag-link-position-42" style="font-size: 22pt;" aria-label="scraper (3 items)">scraper</a>
+<a href="../../../../tag/transparency/index.html" class="tag-cloud-link tag-link-55 tag-link-position-43" style="font-size: 8pt;" aria-label="transparency (1 item)">transparency</a>
+<a href="../../../../tag/turkey/index.html" class="tag-cloud-link tag-link-56 tag-link-position-44" style="font-size: 8pt;" aria-label="Turkey (1 item)">Turkey</a>
+<a href="../../../../tag/ui/index.html" class="tag-cloud-link tag-link-58 tag-link-position-45" style="font-size: 22pt;" aria-label="ui (3 items)">ui</a></div>
+</aside></section><!-- #secondary .widget-area -->
+				<footer id="colophon" role="contentinfo" class="span12">
+										<div id="page-footer" class="well clearfix">
+						<span class="credits alignleft">&copy; 2020 <a href="../../../../index.html">PageOneX</a>, all rights reserved.</span>						<div id="site-generator">
+							<a	href="http://wordpress.org/"
+								title="Semantic Personal Publishing Platform"
+								target="_blank"
+								rel="generator">Proudly powered by WordPress</a>
+						</div>
+					</div><!-- #page-footer .well .clearfix -->
+									</footer><!-- #colophon -->
+							</div><!-- #page -->
+		</div><!-- .container -->
+	<!-- 187 queries. 0.182 seconds. -->
+	<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+var colomatpauseInit = '';
+var colomattouchstart = '';
+</script>		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><script type='text/javascript' src='../../../../wp-includes/js/imagesloaded.min.js%3Fver=3.2.0'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/masonry.min.js%3Fver=3.3.2'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/jquery-collapse-o-matic/js/collapse.js%3Fver=1.6.19'></script>
+<script type='text/javascript' src='../../../../wp-content/themes/pageonex-blog-bootstrap/js/bootstrap.min.js%3Fver=2.0.3'></script>
+<script type='text/javascript' src='../../../../wp-content/themes/pageonex-blog-bootstrap/js/the-bootstrap.min.js%3Fver=2.0.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/blog.pageonex.com\/wp-admin\/admin-ajax.php","force_ajax_send":"","is_crawler":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/thrive-visual-editor/thrive-dashboard/js/dist/frontend.min.js%3Fver=2.2.17'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/wp-embed.min.js%3Fver=5.4.2'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/comment-reply.min.js%3Fver=5.4.2'></script>
+<script async="async" type='text/javascript' src='../../../../wp-content/plugins/akismet/_inc/form.js%3Fver=4.1.6'></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>	</body>
+</html>

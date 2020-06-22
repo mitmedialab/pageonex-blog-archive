@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+	<head>
+				<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<title>Scraping newspapers&#8217; names from Kiosko.net &laquo; PageOneX</title>
+		
+				<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; Feed" href="../../../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; Comments Feed" href="../../../../comments/feed/index.html" />
+<link rel="alternate" type="text/calendar" title="PageOneX &raquo; iCal Feed" href="../../../../events/index.html%3Fical=1" />
+<link rel="alternate" type="application/rss+xml" title="PageOneX &raquo; Scraping newspapers&#8217; names from Kiosko.net Comments Feed" href="feed/index.html" />
+	<script type="text/javascript">
+		var ajaxurl = 'https://blog.pageonex.com/wp-admin/admin-ajax.php';
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.pageonex.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.2"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='userlist-style-css'  href='../../../../wp-content/plugins/wp-users-list-widget/css/style.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-common-skeleton-style-css'  href='../../../../wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css%3Fver=4.12.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe-tooltip-css'  href='../../../../wp-content/plugins/the-events-calendar/common/src/resources/css/tooltip.min.css%3Fver=4.12.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-blog-designer-fontawesome-stylesheets-css'  href='../../../../wp-content/plugins/blog-designer/css/fontawesome-all.min.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-blog-designer-css-stylesheets-css'  href='../../../../wp-content/plugins/blog-designer/css/designer_css.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../../../wp-content/plugins/jquery-collapse-o-matic/light_style.css%3Fver=1.6.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tw-bootstrap-css'  href='../../../../wp-content/themes/pageonex-blog-bootstrap/css/bootstrap.min.css%3Fver=2.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='the-bootstrap-css'  href='../../../../wp-content/themes/pageonex-blog-bootstrap/style.min.css%3Fver=2.0.1.css' type='text/css' media='all' />
+<style id='the-bootstrap-inline-css' type='text/css'>
+body > .container{margin-top:68px;}@media(min-width: 980px){body > .container{margin-top:58px;}}
+</style>
+<link rel='stylesheet' id='dry_awp_theme_style-css'  href='../../../../wp-content/plugins/advanced-wp-columns/assets/css/awp-columns.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tmm-css'  href='../../../../wp-content/plugins/team-members/inc/css/tmm_style.css%3Fver=5.4.2.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../../wp-includes/js/jquery/jquery.js%3Fver=1.12.4-wp'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/jquery/jquery-migrate.min.js%3Fver=1.4.1'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/blog-designer/js/designer.js%3Fver=5.4.2'></script>
+<link rel='https://api.w.org/' href='../../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Thread&#8217;s date issue when selecting days in different months, suggestions?' href='../../../../index.html%3Fp=93.html' />
+<link rel='next' title='User interface: first drafts' href='../../../../index.html%3Fp=126.html' />
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel="canonical" href="../../../../index.html%3Fp=111.html" />
+<link rel='shortlink' href='../../../../index.html%3Fp=111.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fblog.pageonex.com%252F2012%252F06%252F28%252Fscraping-newspapers-names-from-kiosko-net%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fblog.pageonex.com%252F2012%252F06%252F28%252Fscraping-newspapers-names-from-kiosko-net%252F&amp;format=xml" />
+<style type="text/css" id="tve_global_variables">:root{}</style><script src='https://wordpress.brownbag.me/?dm=92dfdf7b65c23102d23f0f69d602eef7&amp;action=load&amp;blogid=30&amp;siteid=1&amp;t=549480112&amp;back=https%3A%2F%2Fblog.pageonex.com%2F2012%2F06%2F28%2Fscraping-newspapers-names-from-kiosko-net%2F' type='text/javascript'></script><meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://blog.pageonex.com"><link rel="https://theeventscalendar.com/" href="../../../../wp-json/tribe/events/v1/index.html" /><!-- All in one Favicon 4.7 -->	<style type="text/css">
+				#branding hgroup {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+			</style>
+		<!--[if lt IE 9]>
+		<script src="https://blog.pageonex.com/wp-content/themes/pageonex-blog-bootstrap/js/html5shiv.min.js" type="text/javascript"></script>
+		<script src="https://blog.pageonex.com/wp-content/themes/pageonex-blog-bootstrap/js/respond.min.js" type="text/javascript"></script>
+	<![endif]-->
+	<style type="text/css" id="thrive-default-styles"></style>	</head>
+	
+	<body class="post-template-default single single-post postid-111 single-format-standard tribe-no-js content-sidebar">
+		<div class="container">
+			<div id="page" class="hfeed row">
+								<header id="branding" role="banner" class="span12">
+										<hgroup>
+						<h1 id="site-title">
+							<a href="../../../../index.html" title="PageOneX" rel="home">
+								<span>PageOneX</span>
+							</a>
+						</h1>
+						<h2 id="site-description">Coding front pages</h2>
+					</hgroup>
+					
+					
+					<nav id="access" role="navigation">
+						<h3 class="assistive-text">Main menu</h3>
+						<div class="skip-link"><a class="assistive-text" href="../../../../index.html%3Fp=111.html#content" title="Skip to primary content">Skip to primary content</a></div>
+						<div class="skip-link"><a class="assistive-text" href="../../../../index.html%3Fp=111.html#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+												<div class="navbar navbar-fixed-top">
+							<div class="navbar-inner">
+								<div class="container">
+									<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+									<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</a>
+																		<span class="brand">PageOneX</span>
+																		<div class="nav-collapse">
+										<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav"><li id="menu-item-624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-624"><a href="http://pageonex.com">Home</a></li>
+<li id="menu-item-623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-623"><a href="../../../../index.html">Blog</a></li>
+<li id="menu-item-621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-621"><a href="../../../../index.html%3Fp=228.html">About</a></li>
+<li id="menu-item-627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-627"><a href="../../../../index.html%3Fp=376.html">Timeline</a></li>
+<li id="menu-item-625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-625"><a href="https://github.com/numeroteca/pageonex/wiki">Wiki</a></li>
+<li id="menu-item-620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-620"><a href="../../../../index.html%3Fp=283.html">Subscribe to Newsletter</a></li>
+<li id="menu-item-622" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622"><a href="../../../../index.html%3Fp=315.html">References</a></li>
+<li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="../../../../index.html%3Fp=356.html">Report bugs</a></li>
+</ul></div>	<form id="searchform" class="navbar-search pull-right" method="get" action="../../../../index.html">
+						<label for="s" class="assistive-text hidden">Search</label>
+						<input type="search" class="search-query" name="s" id="s" placeholder="Search" />
+					</form>								    </div>
+								</div>
+							</div>
+						</div>
+											</nav><!-- #access -->
+									</header><!-- #branding -->
+<section id="primary" class="span8">
+	
+		<div id="content" role="main">
+		<article id="post-111" class="post-111 post type-post status-publish format-standard hentry category-code category-scraping">
+		
+	<header class="page-header">
+		<h1 class="entry-title">Scraping newspapers&#8217; names from Kiosko.net</h1>		<div class="entry-meta"><span class="sep">Posted on </span><a href="../../../../index.html%3Fp=111.html" title="5:50 am" rel="bookmark"><time class="entry-date" datetime="2012-06-28T05:50:17+00:00" pubdate>June 28, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="../../../../author/pablo/index.html" title="View all posts by pablo" rel="author">pablo</a></span></span>		<span class="sep"> | </span>
+		<span class="comments-link">
+			<a href="../../../../index.html%3Fp=111.html#respond"><span class="leave-reply">Leave a reply</span></a>		</span>
+		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content clearfix">
+		<p><a href="https://metacpan.org/author/RPORRES">Rporres</a> was visiting Cambridge last week, and after listening to one of the online meetings, he decided to jump in the project. By night he had finished the script for grabbing all the newspapers that are available in <a href="http://Kiosko.net">Kiosko.net</a>. We will need this list soon</p>
+<p>You can check the code at <a href="https://gist.github.com/2970558">https://gist.github.com/2970558</a> or the output (a csv file with the name, friendly url name, coauntry and country code of all the 377 newspapers) at <a href="http://brownbag.me:9001/p/pageonex-kiosko-newspaper-names">http://brownbag.me:9001/p/pageonex-kiosko-newspaper-names</a>. It&#8217;s written in Perl.</p>
+<p>Ahmd had <a href="https://gist.github.com/3009908">started another similar one in Ruby</a>, but we put it on hold for the short term.</p>
+<p>Thanks Rafa for your help!</p>
+<p><span id="more-111"></span><br />
+Here I copy paste the code, for the record.</p>
+<h2>The script in Perl</h2>
+<p>#to use it write &#8220;$ ./parse_kiosko.pl &#8221; where &#8216;lang&#8217; is the language: en, es or fr<br />
+#it will output a csv. see example at http://brownbag.me:9001/p/pageonex-kiosko-newspaper-names</p>
+<p>#!/usr/bin/env perl</p>
+<p>use strict;<br />
+use warnings;<br />
+use utf8;<br />
+use LWP::UserAgent;<br />
+use HTML::TreeBuilder 5 -weak;<br />
+use URI;</p>
+<p>use constant LANG =&gt; qw(en es fr);</p>
+<p># No stdout buffering<br />
+$|++;</p>
+<p># Force UTF8 output<br />
+binmode(STDOUT, &#8220;:utf8&#8221;);</p>
+<p># Define which kiosko root page we&#8217;re taking<br />
+@ARGV == 1 or usage();<br />
+my ($lang) = @ARGV;<br />
+grep { $_ eq $lang } (LANG) or usage();</p>
+<p>my $kiosko_url = &#8220;http://$lang.kiosko.net&#8221;;</p>
+<p># Regexps to get countries<br />
+my %regexp = (<br />
+es =&gt; q|Periódicos de (.+?). Toda la prensa de hoy|,<br />
+en =&gt; q|Newspapers in (.+?). Today&#8217;s press covers|,<br />
+fr =&gt; q|Les Unes des journaux de (.+?). Toute la presse d&#8217;aujourd&#8217;hui|,<br />
+);</p>
+<p># top page<br />
+my $tree = HTML::TreeBuilder-&gt;new_from_url($kiosko_url);</p>
+<p># Get HTML::Entities from top page<br />
+# Look for tags with<br />
+# &#8211; a defined href<br />
+# &#8211; a title Periodicos<br />
+my @a_tags = $tree-&gt;look_down(<br />
+&#8216;_tag&#8217;, &#8216;a&#8217;,<br />
+sub {<br />
+defined $_[0]-&gt;attr(&#8216;href&#8217;) &amp;&amp;<br />
+defined $_[0]-&gt;attr(&#8216;title&#8217;) &amp;&amp; $_[0]-&gt;attr(&#8216;title&#8217;) =~ /^Periodicos de/<br />
+},<br />
+);</p>
+<p># Get a sorted unique list of country codes<br />
+# Exclude geo links as we will get it afterwards looking into the country pages<br />
+my %uniq;<br />
+my @country_pages =<br />
+grep { ! $uniq{$_}++ }<br />
+sort grep { ! m:/geo/: } map { $_-&gt;attr(&#8216;href&#8217;) } @a_tags;</p>
+<p># Header<br />
+print &#8220;Country, Country code, Newspaper name, Newspaper coden&#8221;;</p>
+<p>for my $country_page (@country_pages) {<br />
+my $p_uri = URI-&gt;new_abs($country_page, $kiosko_url);<br />
+my $p_tree = HTML::TreeBuilder-&gt;new_from_url($p_uri-&gt;as_string);</p>
+<p># Get title of this page to have the country<br />
+# Title of pages have the format i.e<br />
+# &#8220;Periódicos de Argentina. Toda la prensa de hoy. Kiosko.net&#8221;<br />
+# &#8220;Periódicos de R. Dominicana. Toda la prensa de hoy. Kiosko.net&#8221;<br />
+my ($p_title_tag) = $p_tree-&gt;look_down(&#8216;_tag&#8217;, &#8216;title&#8217;);</p>
+<p># Cannot do it this way due to Dominican Republic 🙁<br />
+#my ($country) = (split /s/, (split /./, $p_title_tag-&gt;as_text)[0])[-1];</p>
+<p>my ($country) = ($p_title_tag-&gt;as_text =~ qr|$regexp{$lang}|) ? $1 : $p_title_tag-&gt;as_text;</p>
+<p>my $gen_uri = URI-&gt;new_abs(&#8216;general.html&#8217;, $p_uri);<br />
+my $g_tree = HTML::TreeBuilder-&gt;new_from_url($gen_uri-&gt;as_string);</p>
+<p># Links of the newspapers are in the a tags having<br />
+# class=thcover and the attribute href defined<br />
+my @gen_a_tags = $g_tree-&gt;look_down(<br />
+&#8216;_tag&#8217;, &#8216;a&#8217;,<br />
+sub {<br />
+defined $_[0]-&gt;attr(&#8216;class&#8217;) &amp;&amp;<br />
+$_[0]-&gt;attr(&#8216;class&#8217;) eq &#8216;thcover&#8217; &amp;&amp;<br />
+defined $_[0]-&gt;attr(&#8216;href&#8217;)<br />
+}</p>
+<p>);</p>
+<p>for my $a (@gen_a_tags) {<br />
+my $n_uri = URI-&gt;new_abs($a-&gt;attr(&#8216;href&#8217;), $kiosko_url);<br />
+my $n_tree = HTML::TreeBuilder-&gt;new_from_url($n_uri-&gt;as_string);<br />
+my ($n_title_tag) = $n_tree-&gt;look_down(&#8216;_tag&#8217;, &#8216;title&#8217;);</p>
+<p># Get newspaper name<br />
+# Newspaper pages names have the format, i.e<br />
+# &#8220;Periódico Diario Libre (R. Dominicana). Periódicos de R. Dominicana. Toda la prensa de hoy. Kiosko.net&#8221;<br />
+my $n_name = $n_title_tag-&gt;as_text;<br />
+$n_name =~ s/ (.+//;<br />
+$n_name =~ s/[^s]+s//;</p>
+<p># Get newspaper code<br />
+# newspaper links have the format: /fr/np/presseocean.html<br />
+my ($n_code) = ( split ///, $a-&gt;attr(&#8216;href&#8217;) )[-1];<br />
+$n_code =~ s/.html//;</p>
+<p># Remove slashes from country_page<br />
+$country_page =~ s:/::g;</p>
+<p>print join(&#8216;,&#8217;, $country, $country_page, $n_name, $n_code), &#8220;n&#8221;;<br />
+}<br />
+}</p>
+<p>sub usage {<br />
+die sprintf &#8220;Usage: $0 n&#8221;, join &#8216;|&#8217;, (LANG);<br />
+}</p>
+<p><!--more--></p>
+<h2>The output .csv file</h2>
+<p>Country, Country code, Newspaper name, Newspaper code<br />
+Argentina,ar,Clarín,ar_clarin<br />
+Argentina,ar,La Nación,nacion<br />
+Argentina,ar,El Día de la Plata,ar_eldia<br />
+Argentina,ar,La Razón,ar_razon<br />
+Argentina,ar,La Voz del Interior,ar_voz_interior<br />
+Argentina,ar,Los Andes &#8211; Mendoza,ar_losandes<br />
+Argentina,ar,Diario Norte,ar_diario_norte<br />
+Argentina,ar,Diario Uno,ar_uno<br />
+Argentina,ar,Página/12,ar_pagina12<br />
+Argentina,ar,Buenos Aires Herald,buenos_aires_herald<br />
+Argentina,ar,Diario de Cuyo,ar_diario_cuyo<br />
+Argentina,ar,El Diario de Paraná,diario_parana<br />
+Argentina,ar,Diario Hoy,ar_hoy<br />
+Argentina,ar,Diario Jornada,jornada_mendoza<br />
+Argentina,ar,Diario Jornada en la Patagonia,ar_jornada<br />
+Argentina,ar,Diario La Capital &#8211; Mar del Plata,la_capital<br />
+Argentina,ar,El Territorio,ar_territorio_posadas<br />
+Argentina,ar,La República de Corrientes,ar_republica_corrientes<br />
+Argentina,ar,Mañana de Córdoba,ar_manana_cordoba<br />
+Argentina,ar,Diario de La Pampa,ar_diario_pampa<br />
+Argentina,ar,Rosario 12,ar_rosario12<br />
+Argentina,ar,Diario El Sureño,ar_sureno<br />
+Argentina,ar,Diario La Arena,ar_arena<br />
+Argentina,ar,Tiempo Argentino,tiempo_argentino<br />
+Argentina,ar,Diario Pregón,pregon<br />
+Argentina,ar,La Capital &#8211; Rosario,ar_capital_rosario<br />
+Argentina,ar,La Nueva Provincia,ar_nueva_provincia<br />
+Argentina,ar,Uno de Santa Fe,ar_uno_sfe<br />
+Asia-Pacific,asi,Gulf News,gulf_news<br />
+Asia-Pacific,asi,Manila Standard Today,manila_standard_today<br />
+Australia,au,The Australian,au_australian<br />
+Australia,au,The Daily Telegraph,au_daily_telegraph<br />
+Australia,au,Northern Territory News,northern_territory<br />
+Australia,au,The Sydney Morning Herald,sydney_morning_herald<br />
+Australia,au,Herald Sun,herald_sun<br />
+Australia,au,The Courier-Mail,courier_mail<br />
+Australia,au,The West Australian,west_australian<br />
+Belgium,be,Gazet van Antwerpen,gva<br />
+Belgium,be,Le Soir,lesoir<br />
+Belgium,be,De Tijd,de_tijd<br />
+Belgium,be,L&#8217;Echo,l_echo<br />
+Belgium,be,De Morgen,morgen<br />
+Belgium,be,De Standaard,standaard<br />
+Belgium,be,Het Nieuwsblad,nieuwsblad<br />
+Bolivia,bo,Los Tiempos,bo_tiempos<br />
+Bolivia,bo,Diario de Potosí,potosi<br />
+Bolivia,bo,El Nacional,elnacional<br />
+Bolivia,bo,La Patria,patria<br />
+Bolivia,bo,Correo Sur,correo_sur<br />
+Bolivia,bo,El Chaqueño,chaqueno<br />
+Brasil,br,Folha de São Paulo,br_folha_spaulo<br />
+Brasil,br,O Correio Brazilense,correio_braziliense<br />
+Brasil,br,Diário de Cuiabá,diario_cuiaba<br />
+Brasil,br,Jornal Agora,br_agora<br />
+Brasil,br,O Sul,o_sul<br />
+Brasil,br,O Globo,br_oglobo<br />
+Brasil,br,Extra,br_extra<br />
+Brasil,br,O Estado de São Paulo,br_estado_spaulo<br />
+Brasil,br,Diário A Tarde,br_atarde<br />
+Brasil,br,Jornal Estado de Minas,jornal_estado_minas<br />
+Brasil,br,O Liberal,o_liberal<br />
+Canada,ca,The Globe and Mail,ca_globe_mail<br />
+Canada,ca,The National Post,ca_national_post<br />
+Canada,ca,Ottawa Citizen,ca_ottawa_citizen<br />
+Canada,ca,The Province,ca_province<br />
+Canada,ca,The Toronto Star,ca_toronto_star<br />
+Canada,ca,Le Journal de Montréal,ca_journal_montreal<br />
+Canada,ca,The Toronto Sun,ca_toronto_sun<br />
+Canada,ca,The Vancouver Sun,ca_vancouver_sun<br />
+Canada,ca,Winnipeg Free Press,winnipeg_free_press<br />
+Canada,ca,La Presse,ca_la_presse<br />
+Canada,ca,The Gazette,ca_montreal_gazette<br />
+Switzerland,ch,Tages-Anzeiger,tages_anzeiger<br />
+Switzerland,ch,Basler Zeitung,basler_zeitung<br />
+Chile,cl,La Tercera,cl_tercera<br />
+Chile,cl,Diario 21,cl_diario21<br />
+Chile,cl,Diario Chañarcillo,cl_chanarcillo<br />
+Chile,cl,Diario El Divisadero,cl_divisadero<br />
+Chile,cl,Diario el Centro,cl_centro<br />
+Chile,cl,El Tipógrafo,cl_tipografo<br />
+Chile,cl,El Diario de Aysén,diario_aysen<br />
+Chile,cl,El Mercurio,cl_mercurio<br />
+Chile,cl,El Día,cl_eldia<br />
+Chile,cl,Diario de Concepción,diario_concepcion<br />
+Chile,cl,El Pingüino,pinguino<br />
+Chile,cl,Diario El Andino,andino<br />
+China,cn,解放军报 &#8211; Jiefangjun Bao,cn_jiefangjun_bao<br />
+China,cn,The Global Times,cn_global_times<br />
+China,cn,人民网 &#8211; Renmin Ribao,cn_renmin_ribao<br />
+China,cn,China Daily,china_daily<br />
+Colombia,co,El Espectador,co_espectador<br />
+Colombia,co,El Heraldo,co_heraldo<br />
+Colombia,co,Diario La Opinion,co_opinion<br />
+Colombia,co,El Universal,co_universal<br />
+Colombia,co,La Tarde,co_tarde<br />
+Colombia,co,Diario de Otún,co_diario_otun<br />
+Colombia,co,La Libertad,co_libertad<br />
+Colombia,co,La Crónica del Quindío,co_cronica_quindio<br />
+Colombia,co,El Tiempo,co_eltiempo<br />
+Colombia,co,El Colombiano,co_elcolombiano<br />
+Colombia,co,El Mundo,co_elmundo<br />
+Colombia,co,El País &#8211; Cali,co_elpais<br />
+Colombia,co,El Observador,co_observador<br />
+Costa Rica,cr,Diario Extra,cr_extra<br />
+Costa Rica,cr,La Nación &#8211; Costa Rica,cr_nacion<br />
+Cuba,cu,Granma,cu_granma<br />
+Germany,de,Frankfurter Allgemeine,faz<br />
+Germany,de,Die Tageszeitung,tageszeitung<br />
+Germany,de,Frankfurter Rundschau,fr<br />
+Germany,de,Bild,bild<br />
+Germany,de,Sueddeutsche,sueddeutsche<br />
+Germany,de,Der Tagesspiegel,tagesspiegel<br />
+Germany,de,Die Welt,die_welt<br />
+Denmark,dk,B.T.,bt<br />
+Denmark,dk,Ekstra Bladet,ekstrabladet<br />
+Denmark,dk,Politiken,politiken<br />
+Dominican Rep.,do,Diario Libre,do_diario_libre<br />
+Dominican Rep.,do,El Caribe,el_caribe<br />
+Dominican Rep.,do,Listín Diario,do_listin<br />
+Dominican Rep.,do,El Nacional,do_nacional<br />
+Dominican Rep.,do,El Día,do_eldia<br />
+Ecuador,ec,Diario El Mercurio,ec_mercurio<br />
+Ecuador,ec,Diario Hoy,ec_diario_hoy<br />
+Ecuador,ec,El Comercio,ec_comercio<br />
+Spain,es,El País,elpais<br />
+Spain,es,ABC,abc<br />
+Spain,es,El Mundo,elmundo<br />
+Spain,es,La Razón,larazon<br />
+Spain,es,La Vanguardia,lavanguardia<br />
+Spain,es,El Correo,elcorreo<br />
+Spain,es,El Periódico,elperiodico<br />
+Spain,es,Heraldo de Aragón,heraldo_aragon<br />
+Spain,es,La Gaceta,la_gaceta<br />
+Spain,es,La Voz de Galicia,vozgalicia<br />
+Spain,es,Levante,levante<br />
+Spain,es,Alerta &#8211; El Diario de Cantabria,alerta<br />
+Spain,es,Canarias 7,canarias7<br />
+Spain,es,Diario Vasco,diario_vasco<br />
+Spain,es,Diario de Sevilla,diario_sevilla<br />
+Spain,es,El Comercio,elcomercio<br />
+Spain,es,El Diario Montañés,diario_montanes<br />
+Spain,es,El Periódico Mediterraneo,elperiodico_mediterraneo<br />
+Spain,es,El Periódico de Aragón,elperiodico_aragon<br />
+Spain,es,Faro de Vigo,farovigo<br />
+Spain,es,La Nueva España,lanuevaespana<br />
+Spain,es,La Región de Ourense,laregion<br />
+Spain,es,Atlántico Diario,atlantico_diario<br />
+Spain,es,Deia,deia<br />
+Spain,es,Diario del AltoAragón,altoaragon<br />
+Spain,es,El Periódico de Catalunya,elperiodico_cat<br />
+Spain,es,El Periódico de Estremadura,elperiodico_extremadura<br />
+Spain,es,El Punt Avui,elpunt_avui<br />
+Europe,eur,International Herald Tribune,int_herald_tribune<br />
+France,fr,Le Monde,lemonde<br />
+France,fr,La Croix,lacroix<br />
+France,fr,Le Figaro,lefigaro<br />
+France,fr,Libération,liberation<br />
+France,fr,Aujourd&#8217;hui en France,aujourd_hui<br />
+France,fr,La Dépêche du Midi,depeche<br />
+France,fr,Le Dauphiné Libéré,dauphine<br />
+France,fr,Le Parisien,parisien<br />
+France,fr,Le Progrès,progres<br />
+France,fr,Ouest France,ouestfrance<br />
+France,fr,Sud Ouest,sudouest<br />
+France,fr,Courrier Picard,courrierpicard<br />
+France,fr,L&#8217;Yonne-Républicaine,lyonnerepublicaine<br />
+France,fr,La République des Pyrénées,republiquepyrenees<br />
+France,fr,Le Maine Libre,mainelibre<br />
+France,fr,Les Dernières Nouvelles d&#8217;Alsace,dna<br />
+France,fr,Midi Libre,midilibre<br />
+France,fr,Nord Éclair,nordeclair<br />
+France,fr,Paris Normandie,parisnormandie<br />
+France,fr,Presse Ocean,presseocean<br />
+France,fr,Télégramme,telegramme<br />
+France,fr,Berry Republicain,berryrepublicain<br />
+France,fr,Charente Libre,charentelibre<br />
+France,fr,Corse-Matin,corsematin<br />
+France,fr,Journal L&#8217;Alsace,alsace<br />
+France,fr,Journal de Saône-et-Loire,journalsaoneloire<br />
+France,fr,L&#8217;Ardenais,ardennais<br />
+France,fr,L&#8217;Echo de la Haute-Vienne,echo<br />
+Greece,gr,Η ΚΑΘΗΜΕΡΙΝΗ,kathimerini<br />
+Greece,gr,Αδέσμευτος Τύπος,adesmeftos_typos<br />
+Greece,gr,ειδησεις &#8211; Ethnos,ethnos<br />
+Greece,gr,Taxydromos &#8211; ΤΑΧΥΔΡΟΜΟΣ,taxydromos<br />
+Guatemala,gt,Prensa Libre,gt_prensa_libre<br />
+Honduras,hn,La Tribuna,latribuna<br />
+Honduras,hn,Tiempo,tiempo<br />
+Ireland,ie,Irish Times,irish_times<br />
+Ireland,ie,The Irish News,irish_news<br />
+Ireland,ie,Irish Independent,irish_independent<br />
+Ireland,ie,Irish Examiner,irish_examiner<br />
+Israel,il,Haaretz,il_haaretz<br />
+Israel,il,The Jerusalem Post,jerusalem_post<br />
+Israel,il,maariv,il_maariv<br />
+India,in,The Hindu,hindu<br />
+India,in,The Times of India,times_india<br />
+India,in,Ananda Bazar Patrika &#8211; আনন্দবাজার পত্রিকা,in_anandbazar_patrika<br />
+India,in,Eenadu &#8211; ఈనాడు,in_eenadu<br />
+India,in,The Telegraph India,telegraph_india<br />
+India,in,DNA,in_dna<br />
+Italy,it,Corriere della Sera,corriere_della_sera<br />
+Italy,it,Il Messaggero,ilmessaggero<br />
+Italy,it,L&#8217;Osservatore Romano,osservatore_romano<br />
+Italy,it,La Repubblica,repubblica<br />
+Italy,it,La Stampa,stampa<br />
+Italy,it,il Giornale,ilgiornale<br />
+Italy,it,Avvenire,avvenire<br />
+Italy,it,Il Gazzettino,gazzettino<br />
+Italy,it,Il Mattino,mattino<br />
+Italy,it,Il Tirreno,tirreno<br />
+Italy,it,Il Tempo,tempo<br />
+Italy,it,La Sicilia,la_sicilia<br />
+Italy,it,Libero,libero<br />
+Italy,it,l&#8217;Unità,unita<br />
+Italy,it,Giornale di Sicilia,giornale_sicilia<br />
+Japan,jp,Mainichi Shimbun &#8211; 毎日新聞,mainichi_shimbun<br />
+Japan,jp,Mainichi RT,mainichi_rt<br />
+Japan,jp,The Asahi Shimbun,asahi_shimbun<br />
+Japan,jp,The Japan Times,japan_times<br />
+Morocco,ma,Au Fait,au_fait<br />
+Morocco,ma,جريدة المساء المغربية &#8211; Al Massae,almassae<br />
+Morocco,ma,Le Soir Echos,le_soir_echos<br />
+Mexico,mx,La Jornada,mx_jornada<br />
+Mexico,mx,Excelsior,mx_excelsior<br />
+Mexico,mx,La Prensa,mx_laprensa<br />
+Mexico,mx,Milenio,mx_milenio<br />
+Mexico,mx,Diario del Istmo &#8211; Voz en Libertad,mx_diario_istmo<br />
+Mexico,mx,El Informador,mx_informador<br />
+Mexico,mx,Diario de Xalapa,mx_diario_xalapa<br />
+Mexico,mx,El Diario de Chihuahua,mx_diario_chihuahua<br />
+Mexico,mx,El Independiente de Hidalgo,mx_independiente_hidalgo<br />
+Mexico,mx,El Porvenir de Monterrey,mx_porvenir<br />
+Mexico,mx,El Sol de Mazatlán,mx_sol_mazatlan<br />
+Mexico,mx,El Sol de México,mx_sol_mexico<br />
+Mexico,mx,El Sol de Sinaloa,mx_sol_sinaloa<br />
+Mexico,mx,Expreso,mx_expreso<br />
+Mexico,mx,La Jornada de Michoacán,mx_jornada_michoacan<br />
+Mexico,mx,Milenio de Estado de México,mx_milenio_edomex<br />
+Mexico,mx,Opinión,mx_opinion_torreon<br />
+Mexico,mx,Diario Censura,mx_censura<br />
+Mexico,mx,Diario de Morelos,mx_diario_morelos<br />
+Mexico,mx,Diario de Querétaro,mx_diario_queretaro<br />
+Mexico,mx,El Mexicano,mx_el_mexicano<br />
+Mexico,mx,El Occidental,mx_occidental<br />
+Mexico,mx,El Periódico de Quintana Roo,periodico_quintana_roo<br />
+Mexico,mx,El Sol de León,mx_sol_leon<br />
+Mexico,mx,El Sol de Parral,mx_sol_parral<br />
+Mexico,mx,El Sol de Tampico,mx_sol_tampico<br />
+Mexico,mx,El Sol de Tlaxcala,mx_sol_tlaxcala<br />
+Mexico,mx,El Sudcaliforniano,mx_sudcaliforniano<br />
+Nigeria,ng,NEXT,next<br />
+Nicaragua,ni,El Nuevo Diario,ni_nuevo_diario<br />
+Nicaragua,ni,La Prensa,ni_prensa<br />
+Netherlands,nl,AD,ad<br />
+Netherlands,nl,Het Parool,het_parool<br />
+Norway,no,Aftenposten,aftenposten<br />
+New Zealand,nz,The New Zealand Herald,new_zealand_herald<br />
+New Zealand,nz,The Dominion Post,dominion_post<br />
+New Zealand,nz,The Press,press<br />
+Panama,pa,El Siglo,el_siglo<br />
+Panama,pa,La Estrella de Panamá,estrella_panama<br />
+Peru,pe,Expreso,pe_expreso<br />
+Peru,pe,El Mercurio de Cajamarca,mercurio_cajamarca<br />
+Peru,pe,La Primera de Perú,pe_primera<br />
+Peru,pe,Perú 21,pe_peru21<br />
+Peru,pe,Diario Correo,pe_correo<br />
+Peru,pe,Del País,del_pais<br />
+Peru,pe,Diario16,diario16<br />
+Peru,pe,El Peruano,pe_elperuano<br />
+Peru,pe,Diario Correo &#8211; Cusco,pe_correo_cusco<br />
+Peru,pe,El Diario del Cusco,pe_diario_cusco<br />
+Poland,pl,Fakt,fakt<br />
+Poland,pl,Gazeta Wyborcza,gazeta_wyborcza<br />
+Puerto Rico,pr,El Nuevo Día,nuevo_dia<br />
+Puerto Rico,pr,Daily Sun,pr_daily_sun<br />
+Portugal,pt,Diário de Noticias,diario_noticias<br />
+Portugal,pt,Correio da Manhã,correiodamanha<br />
+Portugal,pt,Jornal de Notícias,jornal_noticias<br />
+Portugal,pt,Público,publico<br />
+Portugal,pt,Diário de Coimbra,diario_coimbra<br />
+Paraguay,py,ABC Color,abccolor<br />
+Paraguay,py,La Nación,nacion<br />
+Paraguay,py,Última Hora,py_ultimahora<br />
+Paraguay,py,5 Días,py_5dias<br />
+Russia,ru,Izvestia,izvestia<br />
+Russia,ru,Kommersant,kommersant<br />
+Russia,ru,Moskovsky Komsomolets,komsomolets<br />
+Russia,ru,Moskovskaya Pravda,moskovskaya_pravda<br />
+Russia,ru,Delovoy Peterburg,delovoy_peterburg<br />
+Sweden,se,Dagens Nyheter,dagens_nyheter<br />
+Sweden,se,Helsingborgs Dagblad,helsingborgs_dagblad<br />
+Sweden,se,Sundsvalls Tidning,sundsvalls_tidning<br />
+Sweden,se,Flamman,flamman<br />
+El Salvador,sv,La Prensa Gráfica,prensa_grafica<br />
+Turkey,tr,Hürriyet,hurriyet<br />
+Turkey,tr,Zaman,zaman<br />
+Turkey,tr,Habertürk,haberturk<br />
+Turkey,tr,Milliyet,milliyet<br />
+Turkey,tr,Vatan,vatan<br />
+Turkey,tr,Posta Gazetesi,posta_gazetesi<br />
+Turkey,tr,Takvim,takvim<br />
+Turkey,tr,Sabah,sabah<br />
+United Kingdom,uk,The Times,the_times<br />
+United Kingdom,uk,The Guardian,guardian<br />
+United Kingdom,uk,Daily Telegraph,daily_telegraph<br />
+United Kingdom,uk,The Independent,the_independent<br />
+United Kingdom,uk,The Herald,herald<br />
+United Kingdom,uk,The Scotsman,scotsman<br />
+United Kingdom,uk,Belfast Telegraph,belfast_telegraph<br />
+United Kingdom,uk,Irish News,irish_news<br />
+United Kingdom,uk,The Journal,the_journal<br />
+United Kingdom,uk,Evening Standard,evening_standard<br />
+USA,us,New York Times,newyork_times<br />
+USA,us,Washington Post,washington_post<br />
+USA,us,Boston Globe,boston_globe<br />
+USA,us,Los Angeles Times,latimes<br />
+USA,us,El Nuevo Herald,nuevo_herald<br />
+USA,us,Miami Herald,miami_herald<br />
+USA,us,San Jose Mercury News,mercure_news<br />
+USA,us,Seattle Times,seattle_times<br />
+USA,us,St. Petersburg Times,st_petersburg_times<br />
+USA,us,La Opinión,laopinion<br />
+USA,us,USA Today,usa_today<br />
+USA,us,Dallas Morning News,dallas_morning_news<br />
+USA,us,Chicago Tribune,chicago_tribune<br />
+USA,us,New York Post,newyork_post<br />
+USA,us,San Francisco Chronicle,sf_chronicle<br />
+USA,us,Detroit Free Press,detroit_free_press<br />
+USA,us,Philadelphia Inquirer,philadelphia_inquirer<br />
+USA,us,Star Tribune,star_tribune<br />
+USA,us,Star-Ledger,starledger<br />
+USA,us,The Atlanta Journal-Constitution,atlanta_journal_conts<br />
+USA,us,The Baltimore Sun,baltimore_sun<br />
+USA,us,The Sacramento Bee,sacramento_bee<br />
+USA,us,Arizona Republic News,arizona_republic<br />
+USA,us,Chicago Sun-Times,chicago_sun_times<br />
+USA,us,Newsday,newsday<br />
+USA,us,The Denver Post,denver_post<br />
+USA,us,The Plain Dealer,plain_dealer<br />
+USA,us,Arizona Daily Star,arizona_daily_star<br />
+Uruguay,uy,El Observador,uy_observador<br />
+Uruguay,uy,El País,uy_elpais<br />
+Uruguay,uy,La Diaria,uy_ladiaria<br />
+Uruguay,uy,La República,uy_republica<br />
+Uruguay,uy,Últimas Noticias,uy_ultimas_noticias<br />
+Uruguay,uy,Diario La Juventud,uy_juventud<br />
+Uruguay,uy,El Telégrafo,uy_telegrafo<br />
+Venezuela,ve,El Nacional,ve_nacional<br />
+Venezuela,ve,2001 &#8211; Dosmiluno,ve_2001<br />
+Venezuela,ve,Últimas Noticias,ve_ultimasnoticias<br />
+Venezuela,ve,Correo del Caroní,ve_correo_caroni<br />
+Venezuela,ve,Diario Voz,ve_diario_voz<br />
+Venezuela,ve,La Prensa de Lara,ve_prensa_lara<br />
+Venezuela,ve,Versión Final,ve_version_final<br />
+Venezuela,ve,El Clarín de la Victoria para Aragua,ve_clarin_aragua<br />
+Venezuela,ve,El Diario de Guayana,ve_diario_guayana<br />
+Venezuela,ve,El Informador,ve_informador<br />
+Venezuela,ve,El Tiempo &#8211; El periódico del pueblo oriental,tiempo_puerto_cruz<br />
+Venezuela,ve,Nueva Prensa Guayana,ve_nueva_prensa<br />
+Venezuela,ve,Primicia,primicia<br />
+Venezuela,ve,Diario Impacto,ve_impacto<br />
+Venezuela,ve,Notitarde,ve_notitarde<br />
+Venezuela,ve,El Regional,el_regional<br />
+Venezuela,ve,La Hora,la_hora<br />
+Venezuela,ve,Mundo Oriental,mundo_oriental<br />
+Venezuela,ve,El Luchador,el_luchador<br />
+Venezuela,ve,Periodiquito de Aragua,periodiquito<br />
+Venezuela,ve,Periodiquito de Guárico,periodiquito_guarico<br />
+Venezuela,ve,Universal,ve_universal<br />
+Venezuela,ve,El Aragüeño,ve_aragueno<br />
+Venezuela,ve,Nueva Prensa de Oriente,nueva_prensa_oriente<br />
+Venezuela,ve,Visión Apureña,vision_apurena<br />
+Venezuela,ve,Diario La Costa,ve_diario_costa<br />
+South Africa,za,Beeld,beeld<br />
+South Africa,za,The Star,star<br />
+South Africa,za,The Times,the_times</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links block">Posted in <a href="../../../../category/code/index.html" rel="category tag">code</a>, <a href="../../../../category/scraping/index.html" rel="category tag">Scraping</a>.</span>	</footer><!-- .entry-footer -->
+	
+	</article><!-- #post-111 -->
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><legend>Leave a reply</legend> <small><a rel="nofollow" id="cancel-comment-reply-link" href="../../../../index.html%3Fp=111.html#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://blog.pageonex.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="form-horizontal"><div class="comment-form-comment control-group"><label class="control-label" for="comment">Comment</label><div class="controls"><textarea class="span7" id="comment" name="comment" rows="8" aria-required="true"></textarea></div></div><div class="form-allowed-tags control-group"><label class="control-label">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: </label><div class="controls"><pre>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </pre></div></div>
+									 <div class="form-actions"><div class="comment-form-author control-group">
+				<label for="author" class="control-label">Name</label>
+				<div class="controls">
+					<input id="author" name="author" type="text" value="" size="30" aria-required='true' />
+					<p class="help-inline"><span class="required">required</span></p>
+				</div>
+			</div>
+<div class="comment-form-email control-group">
+				<label for="email" class="control-label">Email</label>
+				<div class="controls">
+					<input id="email" name="email" type="email" value="" size="30" aria-required='true' />
+					<p class="help-inline"><span class="required">required</span>, will not be published</p>
+				</div>
+			</div>
+<div class="comment-form-url control-group">
+				<label for="url" class="control-label">Website</label>
+				<div class="controls">
+					<input id="url" name="url" type="url" value="" size="30" />
+				</div>
+			</div>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='111' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="6a1f7a6fbf" /></p></div></div><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="67"/></p></form>	</div><!-- #respond -->
+			
+		<nav id="nav-single" class="pager">
+			<h3 class="assistive-text">Post navigation</h3>
+			<span class="next"><a href="../../../../index.html%3Fp=126.html" rel="next">Next Post <span class="meta-nav">&rarr;</span></a></span>
+			<span class="previous"><a href="../../../../index.html%3Fp=93.html" rel="prev"><span class="meta-nav">&larr;</span> Previous Post</a></span>
+		</nav><!-- #nav-single -->
+		
+			</div><!-- #content -->
+	</section><!-- #primary -->
+
+<section id="secondary" class="widget-area offset1 span3" role="complementary">
+	<aside id="text-3" class="widget well widget_text">			<div class="textwidget"><p>Twitter: <a class="btn" href="https://twitter.com/PageOneX">@PageOneX</a></p>
+<p><a href="http://pageonex.com"><img src="http://pageonex.com/assets/header-blog-2.png" /><br />
+PageOneX</a> makes it easy to track, code, and visualize major news stories based on the proportion of newspaper front pages that they take up.</p>
+</div>
+		</aside><aside id="text-5" class="widget well widget_text">			<div class="textwidget"><p><a title="PageOneX in Pinterest" href="http://pinterest.com/numeroteca/newspaper-front-page-visualizations/"><img src="http://pageonex.wordpress.brownbag.me/wp-content/uploads/sites/30/2013/02/pinterest_p.png" alt="PageOneX in Pinterest" width="" /><br />
+Gallery of PageOneX projects in Pinterest.</a></p>
+</div>
+		</aside>		<aside id="recent-posts-2" class="widget well widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../../../../index.html%3Fp=662.html">PageonexR: proces Pageonex data with R</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=652.html">Brand new features: edit areas, fork threads, multi taxonomy!</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=640.html">We didn&#8217;t get the grant to develop new features but&#8230; look how cool they are!</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=630.html">Peer reviewed paper about PageOneX published</a>
+									</li>
+											<li>
+					<a href="../../../../index.html%3Fp=618.html">Number of PageOneX.com users keeps growing</a>
+									</li>
+					</ul>
+		</aside><aside id="rss-3" class="widget well widget_rss"><h2 class="widget-title"><a class="rsswidget" href="https://github.com/numeroteca/pageonex/commits/master.atom"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="../../../../wp-includes/images/rss.png" alt="RSS" /></a> <a class="rsswidget" href="https://github.com/montera34/pageonex/commits/master">PageOneX Commits</a></h2><ul><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/b5da84415a87a9c5e49b5728aed0aa498106e83f'>update release version v0.0.1-rc2</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/47500492b8fa6606f094752c43e7a8c8e0cc931e'>add version number to footer</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/dce99163060a62b1fe1d1cff7e3b30d9801bba43'>add version number to footer</a></li><li><a class='rsswidget' href='https://github.com/montera34/pageonex/commit/166f1366f8872cd1313a73b51baeb0da74bf39c7'>Merge pull request #229 from montera34/make-raw-json-public</a></li></ul></aside><aside id="categories-2" class="widget well widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+				<li class="cat-item cat-item-4"><a href="../../../../category/case-study/index.html">case study</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="../../../../category/code/index.html">code</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="../../../../category/data-model/index.html">Data Model</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="../../../../category/deployment/index.html">Deployment</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../../../category/display/index.html">Display</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="../../../../category/experiments/index.html">experiments</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="../../../../category/how-pageonex-goes/index.html">How PageOneX goes</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="../../../../category/meetings/index.html">meetings</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="../../../../category/scraping/index.html">Scraping</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../../../category/uncategorized/index.html">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="../../../../category/user-interface/index.html">User Interface</a>
+</li>
+		</ul>
+			</aside><aside id="archives-2" class="widget well widget_archive"><h2 class="widget-title">Archives</h2>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value='https://blog.pageonex.com/2020/05/'> May 2020 </option>
+	<option value='https://blog.pageonex.com/2019/05/'> May 2019 </option>
+	<option value='https://blog.pageonex.com/2018/07/'> July 2018 </option>
+	<option value='https://blog.pageonex.com/2016/05/'> May 2016 </option>
+	<option value='https://blog.pageonex.com/2016/03/'> March 2016 </option>
+	<option value='https://blog.pageonex.com/2014/09/'> September 2014 </option>
+	<option value='https://blog.pageonex.com/2014/02/'> February 2014 </option>
+	<option value='https://blog.pageonex.com/2013/11/'> November 2013 </option>
+	<option value='https://blog.pageonex.com/2013/10/'> October 2013 </option>
+	<option value='https://blog.pageonex.com/2013/09/'> September 2013 </option>
+	<option value='https://blog.pageonex.com/2013/08/'> August 2013 </option>
+	<option value='https://blog.pageonex.com/2013/06/'> June 2013 </option>
+	<option value='https://blog.pageonex.com/2013/05/'> May 2013 </option>
+	<option value='https://blog.pageonex.com/2013/04/'> April 2013 </option>
+	<option value='https://blog.pageonex.com/2013/03/'> March 2013 </option>
+	<option value='https://blog.pageonex.com/2013/02/'> February 2013 </option>
+	<option value='https://blog.pageonex.com/2012/11/'> November 2012 </option>
+	<option value='https://blog.pageonex.com/2012/08/'> August 2012 </option>
+	<option value='https://blog.pageonex.com/2012/07/'> July 2012 </option>
+	<option value='https://blog.pageonex.com/2012/06/'> June 2012 </option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-2" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+
+		</aside><aside id="tag_cloud-3" class="widget well widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><a href="../../../../tag/15m/index.html" class="tag-cloud-link tag-link-14 tag-link-position-1" style="font-size: 8pt;" aria-label="15M (1 item)">15M</a>
+<a href="../../../../tag/ads/index.html" class="tag-cloud-link tag-link-15 tag-link-position-2" style="font-size: 8pt;" aria-label="Ads (1 item)">Ads</a>
+<a href="../../../../tag/agenda-setting/index.html" class="tag-cloud-link tag-link-16 tag-link-position-3" style="font-size: 8pt;" aria-label="agenda setting (1 item)">agenda setting</a>
+<a href="../../../../tag/amelrame/index.html" class="tag-cloud-link tag-link-17 tag-link-position-4" style="font-size: 8pt;" aria-label="Amelrame (1 item)">Amelrame</a>
+<a href="../../../../tag/barcelona/index.html" class="tag-cloud-link tag-link-18 tag-link-position-5" style="font-size: 8pt;" aria-label="Barcelona (1 item)">Barcelona</a>
+<a href="../../../../tag/bbc/index.html" class="tag-cloud-link tag-link-19 tag-link-position-6" style="font-size: 8pt;" aria-label="BBC (1 item)">BBC</a>
+<a href="../../../../tag/brazil/index.html" class="tag-cloud-link tag-link-20 tag-link-position-7" style="font-size: 16.4pt;" aria-label="Brazil (2 items)">Brazil</a>
+<a href="../../../../tag/coding/index.html" class="tag-cloud-link tag-link-21 tag-link-position-8" style="font-size: 8pt;" aria-label="coding (1 item)">coding</a>
+<a href="../../../../tag/colombia/index.html" class="tag-cloud-link tag-link-22 tag-link-position-9" style="font-size: 8pt;" aria-label="Colombia (1 item)">Colombia</a>
+<a href="../../../../tag/database/index.html" class="tag-cloud-link tag-link-23 tag-link-position-10" style="font-size: 8pt;" aria-label="database (1 item)">database</a>
+<a href="../../../../tag/datanalysis15m/index.html" class="tag-cloud-link tag-link-24 tag-link-position-11" style="font-size: 8pt;" aria-label="datanalysis15M (1 item)">datanalysis15M</a>
+<a href="../../../../tag/datavis/index.html" class="tag-cloud-link tag-link-25 tag-link-position-12" style="font-size: 8pt;" aria-label="datavis (1 item)">datavis</a>
+<a href="../../../../tag/deploy/index.html" class="tag-cloud-link tag-link-26 tag-link-position-13" style="font-size: 8pt;" aria-label="deploy (1 item)">deploy</a>
+<a href="../../../../tag/deployment-2/index.html" class="tag-cloud-link tag-link-27 tag-link-position-14" style="font-size: 8pt;" aria-label="deployment (1 item)">deployment</a>
+<a href="../../../../tag/display-2/index.html" class="tag-cloud-link tag-link-28 tag-link-position-15" style="font-size: 8pt;" aria-label="display (1 item)">display</a>
+<a href="../../../../tag/el-espectador/index.html" class="tag-cloud-link tag-link-29 tag-link-position-16" style="font-size: 8pt;" aria-label="El Espectador (1 item)">El Espectador</a>
+<a href="../../../../tag/elpais/index.html" class="tag-cloud-link tag-link-31 tag-link-position-17" style="font-size: 8pt;" aria-label="elpais (1 item)">elpais</a>
+<a href="../../../../tag/el-tiempo/index.html" class="tag-cloud-link tag-link-30 tag-link-position-18" style="font-size: 8pt;" aria-label="El Tiempo (1 item)">El Tiempo</a>
+<a href="../../../../tag/embed/index.html" class="tag-cloud-link tag-link-32 tag-link-position-19" style="font-size: 16.4pt;" aria-label="embed (2 items)">embed</a>
+<a href="../../../../tag/heroku/index.html" class="tag-cloud-link tag-link-33 tag-link-position-20" style="font-size: 22pt;" aria-label="heroku (3 items)">heroku</a>
+<a href="../../../../tag/ijoc/index.html" class="tag-cloud-link tag-link-34 tag-link-position-21" style="font-size: 8pt;" aria-label="ijoc (1 item)">ijoc</a>
+<a href="../../../../tag/kiosko/index.html" class="tag-cloud-link tag-link-35 tag-link-position-22" style="font-size: 22pt;" aria-label="kiosko (3 items)">kiosko</a>
+<a href="../../../../tag/news/index.html" class="tag-cloud-link tag-link-37 tag-link-position-23" style="font-size: 8pt;" aria-label="News (1 item)">News</a>
+<a href="../../../../tag/newseum/index.html" class="tag-cloud-link tag-link-38 tag-link-position-24" style="font-size: 8pt;" aria-label="newseum (1 item)">newseum</a>
+<a href="../../../../tag/new-york-times/index.html" class="tag-cloud-link tag-link-36 tag-link-position-25" style="font-size: 8pt;" aria-label="New York Times (1 item)">New York Times</a>
+<a href="../../../../tag/nytimes/index.html" class="tag-cloud-link tag-link-39 tag-link-position-26" style="font-size: 8pt;" aria-label="nytimes (1 item)">nytimes</a>
+<a href="../../../../tag/occupygezi/index.html" class="tag-cloud-link tag-link-40 tag-link-position-27" style="font-size: 8pt;" aria-label="occupygezi (1 item)">occupygezi</a>
+<a href="../../../../tag/online-newspaper/index.html" class="tag-cloud-link tag-link-41 tag-link-position-28" style="font-size: 8pt;" aria-label="online newspaper (1 item)">online newspaper</a>
+<a href="../../../../tag/opacity/index.html" class="tag-cloud-link tag-link-42 tag-link-position-29" style="font-size: 8pt;" aria-label="opacity (1 item)">opacity</a>
+<a href="../../../../tag/pablo-rey-mazon/index.html" class="tag-cloud-link tag-link-43 tag-link-position-30" style="font-size: 8pt;" aria-label="pablo rey mazón (1 item)">pablo rey mazón</a>
+<a href="../../../../tag/pageonexr/index.html" class="tag-cloud-link tag-link-68 tag-link-position-31" style="font-size: 16.4pt;" aria-label="pageonexR (2 items)">pageonexR</a>
+<a href="../../../../tag/paper/index.html" class="tag-cloud-link tag-link-44 tag-link-position-32" style="font-size: 8pt;" aria-label="paper (1 item)">paper</a>
+<a href="../../../../tag/paro-agrario/index.html" class="tag-cloud-link tag-link-45 tag-link-position-33" style="font-size: 8pt;" aria-label="paro agrario (1 item)">paro agrario</a>
+<a href="../../../../tag/portuguese/index.html" class="tag-cloud-link tag-link-46 tag-link-position-34" style="font-size: 8pt;" aria-label="portuguese (1 item)">portuguese</a>
+<a href="../../../../tag/processing/index.html" class="tag-cloud-link tag-link-47 tag-link-position-35" style="font-size: 8pt;" aria-label="processing (1 item)">processing</a>
+<a href="../../../../tag/protesters/index.html" class="tag-cloud-link tag-link-48 tag-link-position-36" style="font-size: 16.4pt;" aria-label="protesters (2 items)">protesters</a>
+<a href="../../../../tag/rails/index.html" class="tag-cloud-link tag-link-49 tag-link-position-37" style="font-size: 22pt;" aria-label="rails (3 items)">rails</a>
+<a href="../../../../tag/real-size/index.html" class="tag-cloud-link tag-link-50 tag-link-position-38" style="font-size: 8pt;" aria-label="real size (1 item)">real size</a>
+<a href="../../../../tag/redesign/index.html" class="tag-cloud-link tag-link-51 tag-link-position-39" style="font-size: 8pt;" aria-label="redesign (1 item)">redesign</a>
+<a href="../../../../tag/ruby/index.html" class="tag-cloud-link tag-link-52 tag-link-position-40" style="font-size: 22pt;" aria-label="ruby (3 items)">ruby</a>
+<a href="../../../../tag/sasha-costnaza-chock/index.html" class="tag-cloud-link tag-link-53 tag-link-position-41" style="font-size: 8pt;" aria-label="sasha costnaza-chock (1 item)">sasha costnaza-chock</a>
+<a href="../../../../tag/scraper/index.html" class="tag-cloud-link tag-link-54 tag-link-position-42" style="font-size: 22pt;" aria-label="scraper (3 items)">scraper</a>
+<a href="../../../../tag/transparency/index.html" class="tag-cloud-link tag-link-55 tag-link-position-43" style="font-size: 8pt;" aria-label="transparency (1 item)">transparency</a>
+<a href="../../../../tag/turkey/index.html" class="tag-cloud-link tag-link-56 tag-link-position-44" style="font-size: 8pt;" aria-label="Turkey (1 item)">Turkey</a>
+<a href="../../../../tag/ui/index.html" class="tag-cloud-link tag-link-58 tag-link-position-45" style="font-size: 22pt;" aria-label="ui (3 items)">ui</a></div>
+</aside></section><!-- #secondary .widget-area -->
+				<footer id="colophon" role="contentinfo" class="span12">
+										<div id="page-footer" class="well clearfix">
+						<span class="credits alignleft">&copy; 2020 <a href="../../../../index.html">PageOneX</a>, all rights reserved.</span>						<div id="site-generator">
+							<a	href="http://wordpress.org/"
+								title="Semantic Personal Publishing Platform"
+								target="_blank"
+								rel="generator">Proudly powered by WordPress</a>
+						</div>
+					</div><!-- #page-footer .well .clearfix -->
+									</footer><!-- #colophon -->
+							</div><!-- #page -->
+		</div><!-- .container -->
+	<!-- 181 queries. 0.140 seconds. -->
+	<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+var colomatpauseInit = '';
+var colomattouchstart = '';
+</script>		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><script type='text/javascript' src='../../../../wp-includes/js/imagesloaded.min.js%3Fver=3.2.0'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/masonry.min.js%3Fver=3.3.2'></script>
+<script type='text/javascript' src='../../../../wp-content/plugins/jquery-collapse-o-matic/js/collapse.js%3Fver=1.6.19'></script>
+<script type='text/javascript' src='../../../../wp-content/themes/pageonex-blog-bootstrap/js/bootstrap.min.js%3Fver=2.0.3'></script>
+<script type='text/javascript' src='../../../../wp-content/themes/pageonex-blog-bootstrap/js/the-bootstrap.min.js%3Fver=2.0.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/blog.pageonex.com\/wp-admin\/admin-ajax.php","force_ajax_send":"","is_crawler":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../../wp-content/plugins/thrive-visual-editor/thrive-dashboard/js/dist/frontend.min.js%3Fver=2.2.17'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/wp-embed.min.js%3Fver=5.4.2'></script>
+<script type='text/javascript' src='../../../../wp-includes/js/comment-reply.min.js%3Fver=5.4.2'></script>
+<script async="async" type='text/javascript' src='../../../../wp-content/plugins/akismet/_inc/form.js%3Fver=4.1.6'></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>	</body>
+</html>
